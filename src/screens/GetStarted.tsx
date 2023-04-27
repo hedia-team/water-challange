@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -6,22 +6,22 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+
 import {COLORS} from '../styles';
-import {USERS} from '../data';
+import {USERS, User} from '../data';
 import List from '../components/List';
 import {useStore} from '../store/storage';
 
 const GetStarted = () => {
   const {setAuth} = useStore();
+  const [name, setName] = useState('');
 
-  const selectUser = () => {
-    console.log('🔥 User selected');
+  const selectUser = (user: User) => {
+    setName(user.title);
   };
 
   const completeSetup = () => {
-    console.log('🔥 completeSetup');
     setAuth({isLoggedIn: true});
-
   };
 
   return (
@@ -29,10 +29,16 @@ const GetStarted = () => {
       <View style={styles.page}>
         <View>
           <Text style={styles.header}>Who are you?</Text>
-          <List data={USERS} selectItem={selectUser} />
+          <List
+            data={USERS}
+            selectItem={user => selectUser(user)}
+            nameSelected={name}
+          />
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={completeSetup}>
+        <TouchableOpacity
+          style={[styles.button, name === '' && styles.disabled]}
+          onPress={completeSetup}>
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
       </View>
@@ -61,6 +67,9 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.pink,
     borderRadius: 16,
+  },
+  disabled: {
+    opacity: 0.5,
   },
   buttonText: {
     fontSize: 18,
