@@ -12,11 +12,11 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		174E65819D2CDBF1800178F3 /* libPods-Hydratey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94441628F9BA2FC55059939E /* libPods-Hydratey.a */; };
+		5DACC1B6CFF04414A4E89931 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		85C78EE704475D2BA509C499 /* libPods-Hydratey-waterchallengeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABCD6159521994D851BDF2A /* libPods-Hydratey-waterchallengeTests.a */; };
-		F0434CB24F434D2ABED55865 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */; };
 		A86D68F411AB47B5874B6934 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C86B61F2400042639D5BF417 /* Inter-Medium.ttf */; };
-		5DACC1B6CFF04414A4E89931 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */; };
+		F0434CB24F434D2ABED55865 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,16 +40,16 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = waterchallenge/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = waterchallenge/main.m; sourceTree = "<group>"; };
 		5B75D9BBA5ED9DD7E8DD5B92 /* Pods-Hydratey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey.debug.xcconfig"; path = "Target Support Files/Pods-Hydratey/Pods-Hydratey.debug.xcconfig"; sourceTree = "<group>"; };
+		5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
+		77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = waterchallenge/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94441628F9BA2FC55059939E /* libPods-Hydratey.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hydratey.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A573E93C06F00E065275558E /* Pods-Hydratey-waterchallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey-waterchallengeTests.release.xcconfig"; path = "Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA6386574E133741701B4A99 /* Pods-Hydratey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey.release.xcconfig"; path = "Target Support Files/Pods-Hydratey/Pods-Hydratey.release.xcconfig"; sourceTree = "<group>"; };
 		BABCD6159521994D851BDF2A /* libPods-Hydratey-waterchallengeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hydratey-waterchallengeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C86B61F2400042639D5BF417 /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FE6622208FED9694F0558C3B /* Pods-Hydratey-waterchallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey-waterchallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */ = {isa = PBXFileReference; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C86B61F2400042639D5BF417 /* Inter-Medium.ttf */ = {isa = PBXFileReference; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */ = {isa = PBXFileReference; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +112,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2DD64FE25AE048E697FA931A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */,
+				C86B61F2400042639D5BF417 /* Inter-Medium.ttf */,
+				5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,17 +165,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		2DD64FE25AE048E697FA931A /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */,
-				C86B61F2400042639D5BF417 /* Inter-Medium.ttf */,
-				5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 

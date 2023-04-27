@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import {COLORS} from '../styles';
 
 const HomeScreen = () => {
+  const [index, setIndex] = useState(0);
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
@@ -12,6 +15,18 @@ const HomeScreen = () => {
           <Text style={styles.team}> // Team</Text>
         </Text>
         <Text style={styles.header}>My intake</Text>
+
+        <SegmentedControl
+          values={['Today', 'Overall']}
+          selectedIndex={index}
+          onChange={event => {
+            setIndex(event.nativeEvent.selectedSegmentIndex);
+          }}
+          tintColor="#636366"
+          backgroundColor="#39393c"
+          fontStyle={styles.whiteText}
+          activeFontStyle={styles.whiteText}
+        />
       </View>
     </SafeAreaView>
   );
@@ -57,6 +72,9 @@ const styles = StyleSheet.create({
     color: COLORS.black,
     textAlign: 'center',
     marginVertical: 16,
+  },
+  whiteText: {
+    color: COLORS.white,
   },
 });
 
