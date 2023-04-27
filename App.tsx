@@ -7,12 +7,13 @@ import {
 } from 'react-native';
 
 import GetStarted from './src/screens/GetStarted';
+import {COLORS} from './src/screens/styles';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: '#1E1E1E',
+    backgroundColor: COLORS.background,
   };
 
   return (

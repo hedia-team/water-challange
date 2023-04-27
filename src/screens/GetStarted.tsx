@@ -1,5 +1,6 @@
 import React from 'react';
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
+import {COLORS} from './styles';
 
 const GetStarted = () => {
   return (
@@ -15,7 +16,7 @@ const styles = StyleSheet.create({
     height: Dimensions.get('window').height,
   },
   text: {
-    color: '#FFFFFF',
+    color: COLORS.white,
   },
 });
 
