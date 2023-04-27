@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: COLORS.dark,
+    marginTop: 25,
   },
   page: {
     flex: 1,
@@ -62,7 +63,6 @@ const styles = StyleSheet.create({
     lineHeight: 41,
     color: COLORS.pink,
     marginBottom: 35,
-    marginTop: 25,
   },
   button: {
     backgroundColor: COLORS.pink,
