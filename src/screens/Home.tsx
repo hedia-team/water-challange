@@ -85,7 +85,7 @@ const HomeScreen = () => {
           renderItem={({item}) => (
             <View style={styles.item}>
               <Text style={styles.time}>{item.time}</Text>
-              <Text style={styles.value}>{item.amount}</Text>
+              <Text style={styles.value}>{item.amount} ml</Text>
             </View>
           )}
         />
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   },
   gradient: {
     marginTop: 37,
-    marginBottom: 34,
+    marginBottom: 24,
     paddingVertical: 13,
     borderRadius: 30,
     alignItems: 'center',
@@ -175,6 +175,7 @@ const styles = StyleSheet.create({
     borderBottomColor: '#515151',
     borderBottomWidth: 1,
     backgroundColor: COLORS.dark,
+    paddingVertical: 14,
   },
   calendarIcon: {
     marginLeft: 8,
@@ -186,13 +187,12 @@ const styles = StyleSheet.create({
     color: '#bebebe',
     backgroundColor: COLORS.dark,
     marginLeft: 4,
-    paddingBottom: 14,
   },
   item: {
     flexDirection: 'row',
     marginVertical: 10,
+    paddingHorizontal: 8,
     justifyContent: 'space-between',
-    // backgroundColor: COLORS.pink,
   },
   time: {
     fontFamily: 'Inter-Regular',
