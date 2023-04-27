@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
@@ -13,14 +13,29 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="full-logo" translatesAutoresizingMaskIntoConstraints="NO" id="LBi-Bb-2iu">
+                                <rect key="frame" x="55" y="372" width="265" height="68"/>
+                            </imageView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="0.14901961389999999" green="0.14901961389999999" blue="0.14901961389999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="LBi-Bb-2iu" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ga5-JP-Aer"/>
+                            <constraint firstItem="LBi-Bb-2iu" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="55" id="psb-n8-bwg"/>
+                            <constraint firstItem="LBi-Bb-2iu" firstAttribute="top" secondItem="Bcu-3y-fUS" secondAttribute="top" constant="322" id="xOw-pY-9Pz"/>
+                            <constraint firstItem="LBi-Bb-2iu" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="y9h-3y-Lg6"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52.173913043478265" y="375"/>
+            <point key="canvasLocation" x="52" y="374.6305418719212"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="full-logo" width="464" height="202"/>
+    </resources>
 </document>

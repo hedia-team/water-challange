@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 0.5,
   },
   name: {
+    fontFamily: 'Inter-Regular',
     color: COLORS.white,
     fontSize: 17,
     lineHeight: 22,

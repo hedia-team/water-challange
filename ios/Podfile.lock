@@ -343,6 +343,8 @@ PODS:
     - RCTTypeSafety
     - React-Core
     - ReactCommon/turbomodule/core
+  - react-native-segmented-control (2.4.1):
+    - React-Core
   - React-perflogger (0.71.7)
   - React-RCTActionSheet (0.71.7):
     - React-Core/RCTActionSheetHeaders (= 0.71.7)
@@ -486,6 +488,7 @@ DEPENDENCIES:
   - React-logger (from `../node_modules/react-native/ReactCommon/logger`)
   - react-native-mmkv (from `../node_modules/react-native-mmkv`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - "react-native-segmented-control (from `../node_modules/@react-native-segmented-control/segmented-control`)"
   - React-perflogger (from `../node_modules/react-native/ReactCommon/reactperflogger`)
   - React-RCTActionSheet (from `../node_modules/react-native/Libraries/ActionSheetIOS`)
   - React-RCTAnimation (from `../node_modules/react-native/Libraries/NativeAnimation`)
@@ -570,6 +573,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-mmkv"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-segmented-control:
+    :path: "../node_modules/@react-native-segmented-control/segmented-control"
   React-perflogger:
     :path: "../node_modules/react-native/ReactCommon/reactperflogger"
   React-RCTActionSheet:
@@ -642,6 +647,7 @@ SPEC CHECKSUMS:
   React-logger: 3f8ebad1be1bf3299d1ab6d7f971802d7395c7ef
   react-native-mmkv: 7da5e18e55c04a9af9a7e0ab9792a1e8d33765a1
   react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
+  react-native-segmented-control: 0e4b5d93911e2234f110057df2b41738b326ab3e
   React-perflogger: 2d505bbe298e3b7bacdd9e542b15535be07220f6
   React-RCTActionSheet: 0e96e4560bd733c9b37efbf68f5b1a47615892fb
   React-RCTAnimation: fd138e26f120371c87e406745a27535e2c8a04ef
