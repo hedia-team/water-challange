@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* waterchallengeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* waterchallengeTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-waterchallenge.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-waterchallenge.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-waterchallenge-waterchallengeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-waterchallenge-waterchallengeTests.a */; };
+		174E65819D2CDBF1800178F3 /* libPods-Hydratey.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94441628F9BA2FC55059939E /* libPods-Hydratey.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		85C78EE704475D2BA509C499 /* libPods-Hydratey-waterchallengeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BABCD6159521994D851BDF2A /* libPods-Hydratey-waterchallengeTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,20 +30,20 @@
 		00E356EE1AD99517003FC87E /* waterchallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = waterchallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* waterchallengeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = waterchallengeTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* waterchallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = waterchallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07F961A680F5B00A75B9A /* Hydratey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hydratey.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = waterchallenge/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = waterchallenge/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = waterchallenge/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = waterchallenge/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = waterchallenge/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-waterchallenge-waterchallengeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-waterchallenge-waterchallengeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B4392A12AC88292D35C810B /* Pods-waterchallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterchallenge.debug.xcconfig"; path = "Target Support Files/Pods-waterchallenge/Pods-waterchallenge.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-waterchallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterchallenge.release.xcconfig"; path = "Target Support Files/Pods-waterchallenge/Pods-waterchallenge.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-waterchallenge-waterchallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterchallenge-waterchallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-waterchallenge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-waterchallenge.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B75D9BBA5ED9DD7E8DD5B92 /* Pods-Hydratey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey.debug.xcconfig"; path = "Target Support Files/Pods-Hydratey/Pods-Hydratey.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = waterchallenge/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-waterchallenge-waterchallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-waterchallenge-waterchallengeTests.release.xcconfig"; path = "Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		94441628F9BA2FC55059939E /* libPods-Hydratey.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hydratey.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A573E93C06F00E065275558E /* Pods-Hydratey-waterchallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey-waterchallengeTests.release.xcconfig"; path = "Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests.release.xcconfig"; sourceTree = "<group>"; };
+		AA6386574E133741701B4A99 /* Pods-Hydratey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey.release.xcconfig"; path = "Target Support Files/Pods-Hydratey/Pods-Hydratey.release.xcconfig"; sourceTree = "<group>"; };
+		BABCD6159521994D851BDF2A /* libPods-Hydratey-waterchallengeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hydratey-waterchallengeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		FE6622208FED9694F0558C3B /* Pods-Hydratey-waterchallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey-waterchallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-waterchallenge-waterchallengeTests.a in Frameworks */,
+				85C78EE704475D2BA509C499 /* libPods-Hydratey-waterchallengeTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,7 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-waterchallenge.a in Frameworks */,
+				174E65819D2CDBF1800178F3 /* libPods-Hydratey.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,8 +100,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-waterchallenge.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-waterchallenge-waterchallengeTests.a */,
+				94441628F9BA2FC55059939E /* libPods-Hydratey.a */,
+				BABCD6159521994D851BDF2A /* libPods-Hydratey-waterchallengeTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -131,7 +131,7 @@
 		83CBBA001A601CBA00E9B192 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				13B07F961A680F5B00A75B9A /* waterchallenge.app */,
+				13B07F961A680F5B00A75B9A /* Hydratey.app */,
 				00E356EE1AD99517003FC87E /* waterchallengeTests.xctest */,
 			);
 			name = Products;
@@ -140,10 +140,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-waterchallenge.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-waterchallenge.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-waterchallenge-waterchallengeTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-waterchallenge-waterchallengeTests.release.xcconfig */,
+				5B75D9BBA5ED9DD7E8DD5B92 /* Pods-Hydratey.debug.xcconfig */,
+				AA6386574E133741701B4A99 /* Pods-Hydratey.release.xcconfig */,
+				FE6622208FED9694F0558C3B /* Pods-Hydratey-waterchallengeTests.debug.xcconfig */,
+				A573E93C06F00E065275558E /* Pods-Hydratey-waterchallengeTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -172,9 +172,9 @@
 			productReference = 00E356EE1AD99517003FC87E /* waterchallengeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* waterchallenge */ = {
+		13B07F861A680F5B00A75B9A /* Hydratey */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "waterchallenge" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Hydratey" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
@@ -189,9 +189,9 @@
 			);
 			dependencies = (
 			);
-			name = waterchallenge;
+			name = Hydratey;
 			productName = waterchallenge;
-			productReference = 13B07F961A680F5B00A75B9A /* waterchallenge.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* Hydratey.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -200,7 +200,8 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -224,7 +225,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* waterchallenge */,
+				13B07F861A680F5B00A75B9A /* Hydratey */,
 				00E356ED1AD99517003FC87E /* waterchallengeTests */,
 			);
 		};
@@ -272,15 +273,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge/Pods-waterchallenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey/Pods-Hydratey-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge/Pods-waterchallenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey/Pods-Hydratey-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-waterchallenge/Pods-waterchallenge-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hydratey/Pods-Hydratey-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -298,7 +299,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-waterchallenge-waterchallengeTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Hydratey-waterchallengeTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -320,7 +321,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-waterchallenge-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Hydratey-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -333,15 +334,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -350,15 +351,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge/Pods-waterchallenge-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey/Pods-Hydratey-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge/Pods-waterchallenge-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey/Pods-Hydratey-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-waterchallenge/Pods-waterchallenge-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hydratey/Pods-Hydratey-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -367,15 +368,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-waterchallenge-waterchallengeTests/Pods-waterchallenge-waterchallengeTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -422,7 +423,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* waterchallenge */;
+			target = 13B07F861A680F5B00A75B9A /* Hydratey */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -430,8 +431,9 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-waterchallenge-waterchallengeTests.debug.xcconfig */;
+			baseConfigurationReference = FE6622208FED9694F0558C3B /* Pods-Hydratey-waterchallengeTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -457,8 +459,9 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-waterchallenge-waterchallengeTests.release.xcconfig */;
+			baseConfigurationReference = A573E93C06F00E065275558E /* Pods-Hydratey-waterchallengeTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = waterchallengeTests/Info.plist;
@@ -481,7 +484,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-waterchallenge.debug.xcconfig */;
+			baseConfigurationReference = 5B75D9BBA5ED9DD7E8DD5B92 /* Pods-Hydratey.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -491,6 +494,8 @@
 				DEVELOPMENT_TEAM = N233YE7BQM;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = waterchallenge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Hydratey;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,7 +507,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hedia.waterchallenge;
-				PRODUCT_NAME = waterchallenge;
+				PRODUCT_NAME = Hydratey;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -512,7 +517,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-waterchallenge.release.xcconfig */;
+			baseConfigurationReference = AA6386574E133741701B4A99 /* Pods-Hydratey.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -521,6 +526,8 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = N233YE7BQM;
 				INFOPLIST_FILE = waterchallenge/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Hydratey;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,7 +539,7 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hedia.waterchallenge;
-				PRODUCT_NAME = waterchallenge;
+				PRODUCT_NAME = Hydratey;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -688,7 +695,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "waterchallenge" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "Hydratey" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
