@@ -3,10 +3,14 @@ import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLORS} from './styles';
 import {USERS} from '../data';
 import List from '../components/List';
+import {useStore} from '../store/storage';
 
 const GetStarted = () => {
+  const {setAuth} = useStore();
+
   const onPress = () => {
     console.log('🔥 Pressed');
+    setAuth({isLoggedIn: true});
   };
 
   return (
