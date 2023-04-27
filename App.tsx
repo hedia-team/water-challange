@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  useColorScheme,
-} from 'react-native';
+import {SafeAreaView, StatusBar, useColorScheme} from 'react-native';
 
 import GetStarted from './src/screens/GetStarted';
 import {COLORS} from './src/screens/styles';
@@ -22,11 +17,7 @@ function App(): JSX.Element {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <GetStarted />
-      </ScrollView>
+      <GetStarted />
     </SafeAreaView>
   );
 }

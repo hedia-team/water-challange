@@ -1,22 +1,30 @@
 import React from 'react';
 import {Dimensions, StyleSheet, Text, View} from 'react-native';
 import {COLORS} from './styles';
+import {USERS} from '../data';
+import List from '../components/List';
 
 const GetStarted = () => {
   return (
     <View style={styles.page}>
-      <Text style={styles.text}>Who are you?</Text>
+      <Text style={styles.header}>Who are you?</Text>
+      <List data={USERS} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   page: {
-    flex: 1,
     height: Dimensions.get('window').height,
+    paddingHorizontal: 25,
   },
-  text: {
-    color: COLORS.white,
+  header: {
+    fontSize: 34,
+    lineHeight: 41,
+    fontWeight: '700',
+    color: COLORS.pink,
+    marginBottom: 35,
+    marginTop: 25,
   },
 });
 
