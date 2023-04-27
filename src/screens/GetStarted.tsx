@@ -57,9 +57,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   header: {
+    fontFamily: 'Inter-Bold',
     fontSize: 34,
     lineHeight: 41,
-    fontWeight: '700',
     color: COLORS.pink,
     marginBottom: 35,
     marginTop: 25,
@@ -72,9 +72,9 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   buttonText: {
+    fontFamily: 'Inter-Bold',
     fontSize: 18,
     lineHeight: 24,
-    fontWeight: '700',
     color: COLORS.black,
     textAlign: 'center',
     marginVertical: 16,
