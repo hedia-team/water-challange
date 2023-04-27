@@ -5,37 +5,7 @@ import SegmentedControl from '@react-native-segmented-control/segmented-control'
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../styles';
 import Calendar from '../assets/icons/Calendar';
-
-const DATA = [
-  {
-    title: 'Today February 28th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-  {
-    title: 'Wednesday February 27th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-  {
-    title: 'Tuesday February 26th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-  {
-    title: 'Monday February 25th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-];
+import {INTAKE_ENTRIES} from '../data';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
@@ -74,7 +44,7 @@ const HomeScreen = () => {
         </LinearGradient>
 
         <SectionList
-          sections={DATA}
+          sections={INTAKE_ENTRIES}
           keyExtractor={item => item.time}
           renderSectionHeader={({section: {title}}) => (
             <View style={styles.sectionHeaderItem}>
