@@ -1,29 +1,45 @@
 import React from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {COLORS} from './styles';
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import {COLORS} from '../styles';
 import {USERS} from '../data';
 import List from '../components/List';
 
 const GetStarted = () => {
-  const onPress = () => {
-    console.log('🔥 Pressed');
+  const selectUser = () => {
+    console.log('🔥 User selected');
+  };
+
+  const completeSetup = () => {
+    console.log('🔥 completeSetup');
   };
 
   return (
-    <View style={styles.page}>
-      <View>
-        <Text style={styles.header}>Who are you?</Text>
-        <List data={USERS} />
-      </View>
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.page}>
+        <View>
+          <Text style={styles.header}>Who are you?</Text>
+          <List data={USERS} selectItem={selectUser} />
+        </View>
 
-      <TouchableOpacity style={styles.button} onPress={onPress}>
-        <Text style={styles.buttonText}>Get Started</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity style={styles.button} onPress={completeSetup}>
+          <Text style={styles.buttonText}>Get Started</Text>
+        </TouchableOpacity>
+      </View>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: COLORS.dark,
+  },
   page: {
     flex: 1,
     paddingHorizontal: 25,

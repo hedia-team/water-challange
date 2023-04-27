@@ -1,30 +1,38 @@
 import React from 'react';
-import {FlatList, StyleSheet, Text, View} from 'react-native';
-import {COLORS} from '../screens/styles';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {COLORS} from '../styles';
 
 type DataProps = {
-  id: string;
-  title: string;
+  data: {
+    id: string;
+    title: string;
+  }[];
+  selectItem(): void;
 };
 
-const List = ({data}: DataProps) => {
+const List = ({data, selectItem}: DataProps) => {
   return (
     <View style={styles.listContainer}>
       <FlatList
         data={data}
-        renderItem={({item}) => <Item title={item.title} />}
+        renderItem={({item}) => (
+          <Item title={item.title} selectItem={selectItem} />
+        )}
         keyExtractor={item => item.id}
       />
     </View>
   );
 };
 
-type ItemProps = {title: string};
+type ItemProps = {
+  title: string;
+  selectItem(): void;
+};
 
-const Item = ({title}: ItemProps) => (
-  <View style={styles.item}>
+const Item = ({title, selectItem}: ItemProps) => (
+  <TouchableOpacity style={styles.item} onPress={selectItem}>
     <Text style={styles.name}>{title}</Text>
-  </View>
+  </TouchableOpacity>
 );
 
 const styles = StyleSheet.create({
