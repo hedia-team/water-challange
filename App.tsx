@@ -2,13 +2,13 @@ import React from 'react';
 
 import {NavigationContainer} from '@react-navigation/native';
 import BottomTabNavigator from './navigation/BottomTabNavigation';
-import WelcomeScreen from './src/screens/Welcome';
+import GetStarted from './src/screens/GetStarted';
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 function App(): JSX.Element {
   return (
     <NavigationContainer>
-      {isLoggedIn ? <BottomTabNavigator /> : <WelcomeScreen />}
+      {isLoggedIn ? <BottomTabNavigator /> : <GetStarted />}
     </NavigationContainer>
   );
 }
