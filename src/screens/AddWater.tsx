@@ -1,5 +1,7 @@
-import React, {useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
+import AnimatedLottieView from 'lottie-react-native';
 import {
+  Animated,
   SafeAreaView,
   StyleSheet,
   Text,
@@ -11,14 +13,29 @@ import {COLORS} from '../styles';
 import {WaterContainer, WATER_CONTAINER} from '../data';
 import List from '../components/List';
 
-const AddWater = () => {
+const AddWater = ({navigation}) => {
   const [name, setItem] = useState('');
+  const [animation, setAnimation] = useState(false);
+
+  const {current} = useRef(new Animated.Value(0));
+
+  useEffect(() => {
+    animation &&
+      Animated.timing(current, {
+        toValue: 1,
+        duration: 1000,
+        useNativeDriver: true,
+      }).start(({finished}) => {
+        finished && navigation.goBack();
+      });
+  }, [animation, current, navigation]);
 
   const selectItem = (container: WaterContainer) => {
     setItem(container.title);
   };
   const addWater = () => {
     console.log('🔥 addWater');
+    setAnimation(true);
   };
 
   return (
@@ -32,12 +49,23 @@ const AddWater = () => {
             nameSelected={name}
           />
         </View>
-
         <TouchableOpacity
+          disabled={name === ''}
           style={[styles.button, name === '' && styles.disabled]}
           onPress={addWater}>
           <Text style={styles.buttonText}>Add Water</Text>
         </TouchableOpacity>
+
+        {animation && (
+          <AnimatedLottieView
+            source={require('../assets/lottie/106576-water-drop.json')}
+            autoPlay={true}
+            resizeMode={'cover'}
+            progress={current}
+            loop={false}
+            style={{backgroundColor: COLORS.background}}
+          />
+        )}
       </View>
     </SafeAreaView>
   );
