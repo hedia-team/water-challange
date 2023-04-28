@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,16 +8,23 @@ import {
 } from 'react-native';
 
 import {COLORS} from '../styles';
-import {USERS, User} from '../data';
+import {User} from '../data';
 import List from '../components/List';
 import {useStore} from '../store/storage';
+import {getDrinkers} from '../api/getDrinkers';
 
 const GetStarted = () => {
   const {setAuth} = useStore();
   const [name, setName] = useState('');
+  const [data, setData] = useState<User[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => setData(await getDrinkers());
+    fetchData();
+  }, []);
 
   const selectUser = (user: User) => {
-    setName(user.title);
+    setName(user.name);
   };
 
   const completeSetup = () => {
@@ -30,7 +37,7 @@ const GetStarted = () => {
         <View>
           <Text style={styles.header}>Who are you?</Text>
           <List
-            data={USERS}
+            data={data}
             selectItem={user => selectUser(user)}
             nameSelected={name}
           />
