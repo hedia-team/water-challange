@@ -67,5 +67,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
   },
-  text: {color: COLORS.white, fontSize: 12},
+  text: {
+    fontFamily: 'Inter-Medium',
+    color: COLORS.white,
+    fontSize: 12,
+  },
 });

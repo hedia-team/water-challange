@@ -29,7 +29,7 @@ const ScoreboardScreen = () => {
           activeFontStyle={styles.whiteText}
         />
 
-        <ScrollView style={styles.list}>
+        <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
           <View style={styles.listItem}>
             <View style={styles.row}>
               <Crown />
@@ -63,57 +63,7 @@ const ScoreboardScreen = () => {
           <View style={styles.listItem}>
             <View style={styles.row}>
               <Shit />
-              <Text style={styles.title}>2. Team 2</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>500</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <Shit />
-              <Text style={styles.title}>2. Team 2</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>500</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <Shit />
-              <Text style={styles.title}>2. Team 2</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>500</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <Shit />
-              <Text style={styles.title}>2. Team 2</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>500</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <Shit />
-              <Text style={styles.title}>2. Team 2</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>500</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <Shit />
-              <Text style={styles.title}>2. Team 2</Text>
+              <Text style={styles.title}>4. Team 4</Text>
             </View>
             <Text style={styles.units}>
               <Text>500</Text>
