@@ -6,7 +6,6 @@ import {
   StateStorage,
   createJSONStorage,
 } from 'zustand/middleware';
-import {} from 'zustand/middleware';
 import {IAuthSlice, authSlice} from './slices/authSlice';
 
 // Initializing a MMKV storage instance

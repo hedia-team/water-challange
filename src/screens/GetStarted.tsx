@@ -50,7 +50,6 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: COLORS.dark,
-    marginTop: 25,
   },
   page: {
     flex: 1,

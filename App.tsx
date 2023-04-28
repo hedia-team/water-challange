@@ -20,7 +20,7 @@ const theme: Theme = {
 
 function App(): JSX.Element {
   const {auth} = useStore();
-  console.log('🔥 isLoggedIn', auth);
+
   return (
     <NavigationContainer theme={theme}>
       {auth?.isLoggedIn ? <AuthenticatedNavigation /> : <GetStarted />}

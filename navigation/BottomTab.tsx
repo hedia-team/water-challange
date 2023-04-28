@@ -1,5 +1,12 @@
 import React from 'react';
-import {Image, View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  Image,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 import Profile from '../src/assets/icons/Profile';
 import Scoreboard from '../src/assets/icons/Scoreboard';
 import {COLORS} from '../src/styles';
@@ -10,7 +17,7 @@ const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
   const navigateAddWater = () => navigation.navigate('AddWater');
   const navigateScoreboard = () => navigation.navigate('Scoreboard');
   return (
-    <View style={styles.background}>
+    <SafeAreaView style={styles.background}>
       <View style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={navigateHome}>
           <View style={styles.iconWrapper}>
@@ -32,7 +39,7 @@ const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
           <Text style={styles.text}>Scoreboard</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
