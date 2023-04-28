@@ -10,6 +10,34 @@ import {INTAKE_ENTRIES} from '../data';
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
 
+  const renderListHeader = () => (
+    <LinearGradient
+      colors={['#F988FF', '#3D9AFF']}
+      style={styles.gradient}
+      useAngle
+      angle={98.41}>
+      <View style={styles.row}>
+        <Text style={styles.amount}>2000</Text>
+        <Text style={styles.units}>ml</Text>
+      </View>
+      <Text style={styles.rank}>You are rank 1 today</Text>
+    </LinearGradient>
+  );
+
+  const renderSectionHeader = ({section: {title}}) => (
+    <View style={styles.sectionHeaderItem}>
+      <Calendar style={styles.calendarIcon} />
+      <Text style={styles.sectionHeader}>{title}</Text>
+    </View>
+  );
+
+  const renderItem = ({item}) => (
+    <View style={styles.item}>
+      <Text style={styles.time}>{item.time}</Text>
+      <Text style={styles.value}>{item.amount} ml</Text>
+    </View>
+  );
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
@@ -31,33 +59,13 @@ const HomeScreen = () => {
           activeFontStyle={styles.whiteText}
         />
 
-        <LinearGradient
-          colors={['#F988FF', '#3D9AFF']}
-          style={styles.gradient}
-          useAngle
-          angle={98.41}>
-          <View style={styles.row}>
-            <Text style={styles.amount}>2000</Text>
-            <Text style={styles.units}>ml</Text>
-          </View>
-          <Text style={styles.rank}>You are rank 1 today</Text>
-        </LinearGradient>
-
         <SectionList
           sections={INTAKE_ENTRIES}
           keyExtractor={item => item.time}
-          renderSectionHeader={({section: {title}}) => (
-            <View style={styles.sectionHeaderItem}>
-              <Calendar style={styles.calendarIcon} />
-              <Text style={styles.sectionHeader}>{title}</Text>
-            </View>
-          )}
-          renderItem={({item}) => (
-            <View style={styles.item}>
-              <Text style={styles.time}>{item.time}</Text>
-              <Text style={styles.value}>{item.amount} ml</Text>
-            </View>
-          )}
+          renderSectionHeader={renderSectionHeader}
+          renderItem={renderItem}
+          showsVerticalScrollIndicator={false}
+          ListHeaderComponent={renderListHeader}
         />
       </View>
     </SafeAreaView>
