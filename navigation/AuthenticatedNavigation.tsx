@@ -1,4 +1,3 @@
-//      <Tab.Screen name="AddWater" component={AddWater} />
 import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
