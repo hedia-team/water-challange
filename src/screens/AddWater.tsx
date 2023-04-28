@@ -58,7 +58,7 @@ const AddWater = ({navigation}) => {
 
         {animation && (
           <AnimatedLottieView
-            source={require('../assets/lottie/106576-water-drop.json')}
+            source={require('../assets/lottie/water-drop.json')}
             autoPlay={true}
             resizeMode={'cover'}
             progress={current}
