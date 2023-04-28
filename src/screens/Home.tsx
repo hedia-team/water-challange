@@ -66,6 +66,7 @@ const HomeScreen = () => {
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={renderListHeader}
+          renderSectionFooter={() => <View style={styles.separator} />}
         />
       </View>
     </SafeAreaView>
@@ -183,6 +184,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     lineHeight: 24,
     color: COLORS.white,
+  },
+  separator: {
+    height: 24,
   },
 });
 
