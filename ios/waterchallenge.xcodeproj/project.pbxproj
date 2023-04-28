@@ -40,14 +40,14 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = waterchallenge/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = waterchallenge/main.m; sourceTree = "<group>"; };
 		5B75D9BBA5ED9DD7E8DD5B92 /* Pods-Hydratey.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey.debug.xcconfig"; path = "Target Support Files/Pods-Hydratey/Pods-Hydratey.debug.xcconfig"; sourceTree = "<group>"; };
-		5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
-		77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
+		5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Regular.ttf"; path = "../src/assets/fonts/Inter-Regular.ttf"; sourceTree = "<group>"; };
+		77CB78161B8D4D1499B45EEC /* Inter-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Bold.ttf"; path = "../src/assets/fonts/Inter-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = waterchallenge/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		94441628F9BA2FC55059939E /* libPods-Hydratey.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hydratey.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A573E93C06F00E065275558E /* Pods-Hydratey-waterchallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey-waterchallengeTests.release.xcconfig"; path = "Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		AA6386574E133741701B4A99 /* Pods-Hydratey.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey.release.xcconfig"; path = "Target Support Files/Pods-Hydratey/Pods-Hydratey.release.xcconfig"; sourceTree = "<group>"; };
 		BABCD6159521994D851BDF2A /* libPods-Hydratey-waterchallengeTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hydratey-waterchallengeTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C86B61F2400042639D5BF417 /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
+		C86B61F2400042639D5BF417 /* Inter-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter-Medium.ttf"; path = "../src/assets/fonts/Inter-Medium.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		FE6622208FED9694F0558C3B /* Pods-Hydratey-waterchallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hydratey-waterchallengeTests.debug.xcconfig"; path = "Target Support Files/Pods-Hydratey-waterchallengeTests/Pods-Hydratey-waterchallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -120,7 +120,6 @@
 				5BFBF7B61A914071AA6EABE7 /* Inter-Regular.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
