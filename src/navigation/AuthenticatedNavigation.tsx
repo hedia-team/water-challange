@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import AddWater from '../src/screens/AddWater';
+import AddWater from '../screens/AddWater';
 import BottomTabNavigator from './BottomTabNavigation';
 
 const {Navigator, Screen, Group} = createNativeStackNavigator();

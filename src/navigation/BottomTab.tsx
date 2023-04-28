@@ -7,9 +7,9 @@ import {
   StyleSheet,
   SafeAreaView,
 } from 'react-native';
-import Profile from '../src/assets/icons/Profile';
-import Scoreboard from '../src/assets/icons/Scoreboard';
-import {COLORS} from '../src/styles';
+import Profile from '../assets/icons/Profile';
+import Scoreboard from '../assets/icons/Scoreboard';
+import {COLORS} from '../styles';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 
 const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {

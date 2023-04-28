@@ -7,7 +7,7 @@ import {
 import GetStarted from './src/screens/GetStarted';
 import {useStore} from './src/store/storage';
 import {COLORS} from './src/styles';
-import AuthenticatedNavigation from './navigation/AuthenticatedNavigation';
+import AuthenticatedNavigation from './src/navigation/AuthenticatedNavigation';
 
 const theme: Theme = {
   ...DefaultTheme,
