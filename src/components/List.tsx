@@ -2,15 +2,19 @@ import React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLORS} from '../styles';
 import Checkmark from '../assets/icons/Checkmark';
-import {User} from '../data';
+import {User, WaterContainer} from '../data';
 
-type DataProps = {
-  data: Array<User>;
-  selectItem(item: User): void;
+type DataProps<T> = {
+  data: Array<T>;
+  selectItem(item: T): void;
   nameSelected: string;
 };
 
-const List = ({data, selectItem, nameSelected}: DataProps) => {
+const List = <T extends User | WaterContainer>({
+  data,
+  selectItem,
+  nameSelected,
+}: DataProps<T>) => {
   return (
     <View style={styles.listContainer}>
       <FlatList

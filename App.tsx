@@ -4,10 +4,10 @@ import {
   NavigationContainer,
   Theme,
 } from '@react-navigation/native';
-import BottomTabNavigator from './navigation/BottomTabNavigation';
 import GetStarted from './src/screens/GetStarted';
 import {useStore} from './src/store/storage';
 import {COLORS} from './src/styles';
+import AuthenticatedNavigation from './navigation/AuthenticatedNavigation';
 
 const theme: Theme = {
   ...DefaultTheme,
@@ -23,7 +23,7 @@ function App(): JSX.Element {
 
   return (
     <NavigationContainer theme={theme}>
-      {auth?.isLoggedIn ? <BottomTabNavigator /> : <GetStarted />}
+      {auth?.isLoggedIn ? <AuthenticatedNavigation /> : <GetStarted />}
     </NavigationContainer>
   );
 }
