@@ -50,7 +50,7 @@ const HomeScreen = () => {
           colours={[`pink`, `blue`]}
           textStyle={styles.header}
           text="My intake"
-          containerHeight={`9%`}
+          containerHeight={`10%`}
         />
 
         <SegmentedControl
