@@ -27,7 +27,7 @@ const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.addButton} onPress={navigateAddWater}>
-          <Image source={require('../src/assets/images/Play.png')} />
+          <Image source={require('../assets/images/Play.png')} />
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.button} onPress={navigateScoreboard}>
