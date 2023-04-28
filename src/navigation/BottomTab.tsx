@@ -1,16 +1,17 @@
 import React from 'react';
 import {
-  Image,
   View,
   Text,
   TouchableOpacity,
   StyleSheet,
   SafeAreaView,
+  TouchableHighlight,
 } from 'react-native';
 import Profile from '../assets/icons/Profile';
 import Scoreboard from '../assets/icons/Scoreboard';
 import {COLORS} from '../styles';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
+import Plus from '../assets/icons/Plus';
 
 const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
   const navigateHome = () => navigation.navigate('Home');
@@ -26,9 +27,12 @@ const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
           <Text style={styles.text}>My Intake</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.addButton} onPress={navigateAddWater}>
-          <Image source={require('../assets/images/Play.png')} />
-        </TouchableOpacity>
+        <TouchableHighlight
+          style={styles.addButton}
+          onPress={navigateAddWater}
+          underlayColor={'transparent'}>
+          <Plus />
+        </TouchableHighlight>
 
         <TouchableOpacity style={styles.button} onPress={navigateScoreboard}>
           <View style={styles.iconWrapper}>
@@ -61,8 +65,7 @@ const styles = StyleSheet.create({
   button: {flexDirection: 'column', justifyContent: 'center'},
   addButton: {
     justifyContent: 'center',
-    alignSelf: 'center',
-    marginTop: 50,
+    alignContent: 'center',
   },
   text: {color: COLORS.white, fontSize: 12},
 });
