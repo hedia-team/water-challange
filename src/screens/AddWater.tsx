@@ -8,44 +8,35 @@ import {
 } from 'react-native';
 
 import {COLORS} from '../styles';
-import {USERS, User} from '../data';
+import {WaterContainer, WATER_CONTAINER} from '../data';
 import List from '../components/List';
-import {useStore} from '../store/storage';
-import {LinearGradientText} from '../components/LinearGradientText';
 
-const GetStarted = () => {
-  const {setAuth} = useStore();
-  const [name, setName] = useState('');
+const AddWater = () => {
+  const [name, setItem] = useState('');
 
-  const selectUser = (user: User) => {
-    setName(user.title);
+  const selectItem = (container: WaterContainer) => {
+    setItem(container.title);
   };
-
-  const completeSetup = () => {
-    setAuth({isLoggedIn: true});
+  const addWater = () => {
+    console.log('🔥 addWater');
   };
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
         <View>
-          <LinearGradientText
-            text="Who are you?"
-            colours={[`pink`, `blue`]}
-            textStyle={styles.header}
-            containerHeight={`9%`}
-          />
+          <Text style={styles.header}>Add Water</Text>
           <List
-            data={USERS}
-            selectItem={user => selectUser(user)}
+            data={WATER_CONTAINER}
+            selectItem={selectItem}
             nameSelected={name}
           />
         </View>
 
         <TouchableOpacity
           style={[styles.button, name === '' && styles.disabled]}
-          onPress={completeSetup}>
-          <Text style={styles.buttonText}>Get Started</Text>
+          onPress={addWater}>
+          <Text style={styles.buttonText}>Add Water</Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -56,6 +47,7 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: COLORS.dark,
+    marginTop: 25,
   },
   page: {
     flex: 1,
@@ -87,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default GetStarted;
+export default AddWater;

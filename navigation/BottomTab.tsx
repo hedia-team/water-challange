@@ -1,30 +1,36 @@
 import React from 'react';
-import {Image, View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {
+  Image,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 import Profile from '../src/assets/icons/Profile';
 import Scoreboard from '../src/assets/icons/Scoreboard';
 import {COLORS} from '../src/styles';
 import {BottomTabBarProps} from '@react-navigation/bottom-tabs';
 
 const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
+  const navigateHome = () => navigation.navigate('Home');
+  const navigateAddWater = () => navigation.navigate('AddWater');
+  const navigateScoreboard = () => navigation.navigate('Scoreboard');
   return (
-    <View style={styles.background}>
+    <SafeAreaView style={styles.background}>
       <View style={styles.container}>
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity style={styles.button} onPress={navigateHome}>
           <View style={styles.iconWrapper}>
             <Profile color={state.index === 0 ? COLORS.pink : COLORS.white} />
           </View>
           <Text style={styles.text}>My Intake</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.addButton}>
+        <TouchableOpacity style={styles.addButton} onPress={navigateAddWater}>
           <Image source={require('../src/assets/images/Play.png')} />
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={() => navigation.navigate('Scoreboard')}>
+        <TouchableOpacity style={styles.button} onPress={navigateScoreboard}>
           <View style={styles.iconWrapper}>
             <Scoreboard
               color={state.index === 1 ? COLORS.pink : COLORS.white}
@@ -33,7 +39,7 @@ const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
           <Text style={styles.text}>Scoreboard</Text>
         </TouchableOpacity>
       </View>
-    </View>
+    </SafeAreaView>
   );
 };
 
