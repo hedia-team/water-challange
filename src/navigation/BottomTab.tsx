@@ -18,7 +18,7 @@ const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
   const navigateAddWater = () => navigation.navigate('AddWater');
   const navigateScoreboard = () => navigation.navigate('Scoreboard');
   return (
-    <SafeAreaView style={styles.background}>
+    <>
       <View style={styles.container}>
         <TouchableOpacity style={styles.button} onPress={navigateHome}>
           <View style={styles.iconWrapper}>
@@ -43,14 +43,14 @@ const BottomTab = ({state, navigation}: BottomTabBarProps): JSX.Element => {
           <Text style={styles.text}>Scoreboard</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
+      <SafeAreaView />
+    </>
   );
 };
 
 export default BottomTab;
 
 const styles = StyleSheet.create({
-  background: {backgroundColor: COLORS.dark, width: '100%'},
   container: {
     backgroundColor: '#323235CC',
     height: 73,

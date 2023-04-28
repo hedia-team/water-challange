@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Text, StyleSheet, View, ScrollView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Text, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
 import {COLORS} from '../styles';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import Crown from '../assets/icons/Crown';
@@ -58,6 +57,56 @@ const ScoreboardScreen = () => {
             </View>
             <Text style={styles.units}>
               <Text>2000</Text>
+              <Text> ml</Text>
+            </Text>
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.row}>
+              <Shit />
+              <Text style={styles.title}>2. Team 2</Text>
+            </View>
+            <Text style={styles.units}>
+              <Text>500</Text>
+              <Text> ml</Text>
+            </Text>
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.row}>
+              <Shit />
+              <Text style={styles.title}>2. Team 2</Text>
+            </View>
+            <Text style={styles.units}>
+              <Text>500</Text>
+              <Text> ml</Text>
+            </Text>
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.row}>
+              <Shit />
+              <Text style={styles.title}>2. Team 2</Text>
+            </View>
+            <Text style={styles.units}>
+              <Text>500</Text>
+              <Text> ml</Text>
+            </Text>
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.row}>
+              <Shit />
+              <Text style={styles.title}>2. Team 2</Text>
+            </View>
+            <Text style={styles.units}>
+              <Text>500</Text>
+              <Text> ml</Text>
+            </Text>
+          </View>
+          <View style={styles.listItem}>
+            <View style={styles.row}>
+              <Shit />
+              <Text style={styles.title}>2. Team 2</Text>
+            </View>
+            <Text style={styles.units}>
+              <Text>500</Text>
               <Text> ml</Text>
             </Text>
           </View>

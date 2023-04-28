@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {Text, SectionList, StyleSheet, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
+import {Text, SafeAreaView, SectionList, StyleSheet, View} from 'react-native';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../styles';

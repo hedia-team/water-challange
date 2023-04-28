@@ -4,6 +4,7 @@ import {
   NavigationContainer,
   Theme,
 } from '@react-navigation/native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import GetStarted from './src/screens/GetStarted';
 import {useStore} from './src/store/storage';
 import {COLORS} from './src/styles';
@@ -22,9 +23,11 @@ function App(): JSX.Element {
   const {auth} = useStore();
 
   return (
-    <NavigationContainer theme={theme}>
-      {auth?.isLoggedIn ? <AuthenticatedNavigation /> : <GetStarted />}
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer theme={theme}>
+        {auth?.isLoggedIn ? <AuthenticatedNavigation /> : <GetStarted />}
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 
