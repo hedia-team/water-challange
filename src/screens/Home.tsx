@@ -6,6 +6,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../styles';
 import Calendar from '../assets/icons/Calendar';
 import {INTAKE_ENTRIES} from '../data';
+import {LinearGradientText} from '../components/LinearGradientText';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
@@ -17,7 +18,12 @@ const HomeScreen = () => {
           <Text>User</Text>
           <Text style={styles.team}> // Team</Text>
         </Text>
-        <Text style={styles.header}>My intake</Text>
+        <LinearGradientText
+          colours={[`pink`, `blue`]}
+          textStyle={styles.header}
+          text="My intake"
+          containerHeight={`9%`}
+        />
 
         <SegmentedControl
           values={['Today', 'Overall']}
@@ -87,7 +93,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Bold',
     fontSize: 34,
     lineHeight: 41,
-    color: COLORS.pink,
     marginBottom: 24,
   },
   button: {

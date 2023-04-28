@@ -11,6 +11,7 @@ import {COLORS} from '../styles';
 import {USERS, User} from '../data';
 import List from '../components/List';
 import {useStore} from '../store/storage';
+import {LinearGradientText} from '../components/LinearGradientText';
 
 const GetStarted = () => {
   const {setAuth} = useStore();
@@ -28,7 +29,12 @@ const GetStarted = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
         <View>
-          <Text style={styles.header}>Who are you?</Text>
+          <LinearGradientText
+            text="Who are you?"
+            colours={[`pink`, `blue`]}
+            textStyle={styles.header}
+            containerHeight={`9%`}
+          />
           <List
             data={USERS}
             selectItem={user => selectUser(user)}

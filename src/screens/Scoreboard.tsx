@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {COLORS} from '../styles';
+import {LinearGradientText} from '../components/LinearGradientText';
 
 const ScoreboardScreen = () => {
   return (
@@ -11,7 +12,12 @@ const ScoreboardScreen = () => {
           <Text>User</Text>
           <Text style={styles.team}> // Team</Text>
         </Text>
-        <Text style={styles.header}>Scorebord</Text>
+        <LinearGradientText
+          colours={[`pink`, `blue`]}
+          textStyle={styles.header}
+          text={'Scoreboard'}
+          containerHeight={`9%`}
+        />
       </View>
     </SafeAreaView>
   );
@@ -40,7 +46,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter-Bold',
     fontSize: 34,
     lineHeight: 41,
-    color: COLORS.pink,
     marginBottom: 24,
   },
   button: {

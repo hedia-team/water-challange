@@ -10,7 +10,7 @@ export const COLORS = {
   pink: '#FD87FF',
   blue: '#3D9AFF',
   purple: '#52379C',
-};
+} as const;
 
 const styles = StyleSheet.create({});
 
