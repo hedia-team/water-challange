@@ -1,55 +1,44 @@
 export type User = {
   id: string;
-  title: string;
+  name: string;
 };
-
-export const USERS = [
-  {
-    id: '1',
-    title: 'Cosmax',
-  },
-  {
-    id: '2',
-    title: 'Zygi',
-  },
-  {
-    id: '3',
-    title: 'Pi',
-  },
-  {
-    id: '4',
-    title: 'Anders',
-  },
-  {
-    id: '5',
-    title: 'Chris',
-  },
-];
+export type Team = {
+  id: string;
+  name: string;
+  drinkers: User[];
+};
+export type Drinks = {
+  id: string;
+  drinkerId: string;
+  teamId: string;
+  amount: number;
+  createdAt: string;
+};
 
 export const INTAKE_ENTRIES = [
   {
-    title: 'Today February 28th',
+    name: 'Today February 28th',
     data: [
       {time: '12:12', amount: '200'},
       {time: '13:12', amount: '500'},
     ],
   },
   {
-    title: 'Wednesday February 27th',
+    name: 'Wednesday February 27th',
     data: [
       {time: '12:12', amount: '200'},
       {time: '13:12', amount: '500'},
     ],
   },
   {
-    title: 'Tuesday February 26th',
+    name: 'Tuesday February 26th',
     data: [
       {time: '12:12', amount: '200'},
       {time: '13:12', amount: '500'},
     ],
   },
   {
-    title: 'Monday February 25th',
+    name: 'Monday February 25th',
     data: [
       {time: '12:12', amount: '200'},
       {time: '13:12', amount: '500'},
@@ -59,39 +48,39 @@ export const INTAKE_ENTRIES = [
 
 export type WaterContainer = {
   id: string;
-  title: string;
+  name: string;
   capacity: number;
 };
 
 export const WATER_CONTAINER: Array<WaterContainer> = [
   {
     id: '1',
-    title: 'Espresso Cup',
+    name: 'Espresso Cup',
     capacity: 50,
   },
   {
     id: '2',
-    title: '100 ml',
+    name: '100 ml',
     capacity: 100,
   },
   {
     id: '3',
-    title: '200 ml',
+    name: '200 ml',
     capacity: 200,
   },
   {
     id: '4',
-    title: 'glass',
+    name: 'glass',
     capacity: 300,
   },
   {
     id: '5',
-    title: 'Bottle',
+    name: 'Bottle',
     capacity: 500,
   },
   {
     id: '6',
-    title: 'Soda Stream Bottle',
+    name: 'Soda Stream Bottle',
     capacity: 1000,
   },
 ];

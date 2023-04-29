@@ -1,9 +1,9 @@
-import {Drinks} from '../data';
+import {Drinks} from '../../data';
 
 export const getTeamDrinks = async (teamId: string): Promise<Drinks[]> => {
   const token =
     'vtUWEwUgJJnz4Aay6w9TcxyUKUXsdJJdK4GdgdAiaGCiLDjqpszB7k3nk3AQAQWF';
-  const url = `https://hydratey.hedia.org/api/v1/${teamId}/drinks}`;
+  const url = `https://hydratey.hedia.org/api/v1/teams/${teamId}/drinks}`;
   const options = {
     method: 'GET',
     headers: {

@@ -11,7 +11,7 @@ import {COLORS} from '../styles';
 import {User} from '../data';
 import List from '../components/List';
 import {useStore} from '../store/storage';
-import {getDrinkers} from '../api/getDrinkers';
+import {getDrinkers} from '../api/drinkers/getDrinkers';
 
 const GetStarted = () => {
   const {setAuth} = useStore();
