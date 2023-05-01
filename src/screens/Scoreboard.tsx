@@ -123,7 +123,7 @@ const ScoreboardScreen = () => {
           <Text>{drinker?.name}</Text>
           <Text style={styles.team}>{` // ${userTeam?.name}`}</Text>
         </Text>
-        <Text style={styles.header}>Scorebord</Text>
+        <Text style={styles.header}>Scoreboard</Text>
 
         <SegmentedControl
           values={['Team', 'User']}
