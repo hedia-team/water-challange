@@ -16,10 +16,10 @@ const HomeScreen = () => {
     team.drinkers?.includes(drinker?.id.toLowerCase() ?? ''),
   );
 
-  const SectionListExample = () => {
-    const drinkersDrinks = drinks?.filter(
-      drink => drink.drinkerId === drinker?.id.toLowerCase(),
-    );
+  const intakeSections = () => {
+    const drinkersDrinks = drinks
+      ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      ?.filter(drink => drink.drinkerId === drinker?.id.toLowerCase());
 
     const todayDrinks = drinkersDrinks?.filter(drinks => {
       const date = new Date(drinks.createdAt);
@@ -105,7 +105,7 @@ const HomeScreen = () => {
         />
 
         <SectionList
-          sections={SectionListExample()}
+          sections={intakeSections()}
           keyExtractor={item => item.createdAt}
           renderSectionHeader={renderSectionHeader}
           renderItem={renderItem}
