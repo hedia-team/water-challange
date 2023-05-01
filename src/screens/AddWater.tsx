@@ -12,9 +12,12 @@ import {
 import {COLORS} from '../styles';
 import {WaterContainer, WATER_CONTAINER} from '../data';
 import List from '../components/List';
+import {createDrinks} from '../api/drinks/createDrinks';
+import {useStore} from '../store/storage';
 
 const AddWater = ({navigation}) => {
-  const [name, setItem] = useState('');
+  const {drinker} = useStore();
+  const [drink, setDrink] = useState({name: '', capacity: 0});
   const [animation, setAnimation] = useState(false);
 
   const {current} = useRef(new Animated.Value(0));
@@ -25,16 +28,16 @@ const AddWater = ({navigation}) => {
         toValue: 1,
         duration: 1000,
         useNativeDriver: true,
-      }).start(({finished}) => {
+      }).start(async ({finished}) => {
+        await createDrinks(drinker!.id.toLowerCase(), drink.capacity);
         finished && navigation.goBack();
       });
-  }, [animation, current, navigation]);
+  }, [animation, current, drink, drinker, navigation]);
 
   const selectItem = (container: WaterContainer) => {
-    setItem(container.title);
+    setDrink(container);
   };
-  const addWater = () => {
-    console.log('🔥 addWater');
+  const addWater = async () => {
     setAnimation(true);
   };
 
@@ -46,12 +49,12 @@ const AddWater = ({navigation}) => {
           <List
             data={WATER_CONTAINER}
             selectItem={selectItem}
-            nameSelected={name}
+            nameSelected={drink.name}
           />
         </View>
         <TouchableOpacity
-          disabled={name === ''}
-          style={[styles.button, name === '' && styles.disabled]}
+          disabled={drink.name === ''}
+          style={[styles.button, drink.name === '' && styles.disabled]}
           onPress={addWater}>
           <Text style={styles.buttonText}>Add Water</Text>
         </TouchableOpacity>

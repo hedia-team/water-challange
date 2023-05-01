@@ -3,14 +3,26 @@ import moment from 'moment';
 import {Text, SafeAreaView, SectionList, StyleSheet, View} from 'react-native';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import LinearGradient from 'react-native-linear-gradient';
+import {useFocusEffect} from '@react-navigation/native';
 import {COLORS} from '../styles';
 import Calendar from '../assets/icons/Calendar';
 import {useStore} from '../store/storage';
 import {Drink} from '../data';
+import {getDrinks} from '../api/drinks/getDrinks';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
-  const {drinker, drinks, teams} = useStore();
+  const {drinker, drinks, teams, setDrinks} = useStore();
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const fetchUser = async () => {
+        const d = await getDrinks().catch();
+        setDrinks(d);
+      };
+      fetchUser();
+    }, [setDrinks]),
+  );
 
   const userTeam = teams?.find(team =>
     team.drinkers?.includes(drinker?.id.toLowerCase() ?? ''),

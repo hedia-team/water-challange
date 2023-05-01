@@ -6,6 +6,8 @@ import Crown from '../assets/icons/Crown';
 import Shit from '../assets/icons/Shit';
 import {useStore} from '../store/storage';
 import {Team} from '../data';
+import {useFocusEffect} from '@react-navigation/native';
+import {getDrinks} from '../api/drinks/getDrinks';
 
 const getIcon = (index: number, maxIndex: number) => {
   const isFirst = index === 0;
@@ -79,7 +81,6 @@ const DrinkerListData = () => {
     {drinkerId, total}: {drinkerId: string; total: number},
     index: number,
   ) => {
-    console.log({drinkerId, total});
     return (
       <View style={styles.listItem} key={index}>
         <View style={styles.row}>
@@ -99,10 +100,20 @@ const DrinkerListData = () => {
 
 const ScoreboardScreen = () => {
   const [headerIndex, setHeaderIndex] = useState(0);
-  const {drinker, teams} = useStore();
+  const {drinker, teams, setDrinks} = useStore();
 
   const userTeam = teams?.find(team =>
     team.drinkers?.includes(drinker?.id?.toLowerCase() ?? ''),
+  );
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const fetchUser = async () => {
+        const d = await getDrinks().catch();
+        setDrinks(d);
+      };
+      fetchUser();
+    }, [setDrinks]),
   );
 
   return (

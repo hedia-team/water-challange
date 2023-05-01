@@ -26,7 +26,7 @@ export type WaterContainer = {
 export const WATER_CONTAINER: Array<WaterContainer> = [
   {
     id: '1',
-    name: 'Espresso Cup',
+    name: '50 ml',
     capacity: 50,
   },
   {
@@ -36,22 +36,32 @@ export const WATER_CONTAINER: Array<WaterContainer> = [
   },
   {
     id: '3',
+    name: '150 ml',
+    capacity: 150,
+  },
+  {
+    id: '4',
     name: '200 ml',
     capacity: 200,
   },
   {
-    id: '4',
-    name: 'glass',
-    capacity: 300,
-  },
-  {
     id: '5',
-    name: 'Bottle',
-    capacity: 500,
+    name: '250 ml',
+    capacity: 250,
   },
   {
     id: '6',
-    name: 'Soda Stream Bottle',
-    capacity: 1000,
+    name: 'Soda Stream Bottle (840 ml)',
+    capacity: 840,
+  },
+  {
+    id: '7',
+    name: 'Hedia glass - (300 ml)',
+    capacity: 300,
+  },
+  {
+    id: '8',
+    name: 'Water bottle - (500 ml)',
+    capacity: 500,
   },
 ];
