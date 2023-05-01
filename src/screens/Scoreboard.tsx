@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Text, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
 import {COLORS} from '../styles';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
@@ -8,7 +8,7 @@ import {useStore} from '../store/storage';
 import {Team} from '../data';
 
 const TeamListData = () => {
-  const {teams} = useStore();
+  const {teams, drinks} = useStore();
 
   const getIcon = (index: number) => {
     const isFirst = index === 0;
@@ -16,7 +16,30 @@ const TeamListData = () => {
     const {emptyIcon} = styles;
     return isFirst ? <Crown /> : isLast ? <Shit /> : <View style={emptyIcon} />;
   };
+
+  const sortTeamsByTotalAmount = (): Team[] => {
+    const teamsWithTotalAmount = teams?.map(team => ({
+      team,
+      totalAmount: drinks
+        ?.filter(d => d.teamId === team.id)
+        .reduce((total, d) => total + d.amount, 0),
+    }));
+
+    teamsWithTotalAmount?.sort((a, b) => b?.totalAmount - a?.totalAmount);
+
+    return teamsWithTotalAmount.map(t => t.team);
+  };
+
   const listTeamItem = (team: Team, index: number) => {
+    console.log('🔥 teamId', team.id);
+
+    const calculateTotalAmountByTeamId = (teamId: string): number => {
+      const filteredDrinks = drinks?.filter(d => d.teamId === teamId);
+      return (
+        filteredDrinks.reduce((total, drink) => total + drink.amount, 0) ?? []
+      );
+    };
+
     return (
       <View style={styles.listItem} key={index}>
         <View style={styles.row}>
@@ -24,25 +47,29 @@ const TeamListData = () => {
           <Text style={styles.title}>{team.name}</Text>
         </View>
         <Text style={styles.units}>
-          <Text>5000</Text>
+          <Text>{calculateTotalAmountByTeamId(team.id)}</Text>
           <Text> ml</Text>
         </Text>
       </View>
     );
   };
-  return teams?.map(listTeamItem);
+  return sortTeamsByTotalAmount()?.map(listTeamItem);
 };
 
 const ScoreboardScreen = () => {
   const [headerIndex, setHeaderIndex] = useState(0);
-  const {drinker} = useStore();
+  const {drinker, teams} = useStore();
+
+  const userTeam = teams?.find(team =>
+    team.drinkers?.includes(drinker?.id?.toLowerCase() ?? ''),
+  );
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
         <Text style={styles.user}>
           <Text>{drinker?.name}</Text>
-          <Text style={styles.team}> // Team</Text>
+          <Text style={styles.team}> // {userTeam?.name}</Text>
         </Text>
         <Text style={styles.header}>Scorebord</Text>
 
