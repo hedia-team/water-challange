@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLORS} from '../styles';
 import Checkmark from '../assets/icons/Checkmark';
-import {User, WaterContainer} from '../data';
+import {Drinker, WaterContainer} from '../data';
 
 type DataProps<T> = {
   data: Array<T>;
@@ -10,7 +10,7 @@ type DataProps<T> = {
   nameSelected: string;
 };
 
-const List = <T extends User | WaterContainer>({
+const List = <T extends Drinker | WaterContainer>({
   data,
   selectItem,
   nameSelected,
@@ -18,10 +18,11 @@ const List = <T extends User | WaterContainer>({
   return (
     <View style={styles.listContainer}>
       <FlatList
+        scrollEnabled={false}
         data={data}
         renderItem={({item}) => (
           <Item
-            title={item.title}
+            name={item.name}
             selectItem={() => selectItem(item)}
             nameSelected={nameSelected}
           />
@@ -33,15 +34,15 @@ const List = <T extends User | WaterContainer>({
 };
 
 type ItemProps = {
-  title: string;
+  name: string;
   selectItem(): void;
   nameSelected: string;
 };
 
-const Item = ({title, selectItem, nameSelected}: ItemProps) => (
+const Item = ({name, selectItem, nameSelected}: ItemProps) => (
   <TouchableOpacity style={styles.item} onPress={selectItem}>
-    <Text style={styles.name}>{title}</Text>
-    {title === nameSelected && <Checkmark style={styles.icon} />}
+    <Text style={styles.name}>{name}</Text>
+    {name === nameSelected && <Checkmark style={styles.icon} />}
   </TouchableOpacity>
 );
 

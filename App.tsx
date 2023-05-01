@@ -20,12 +20,11 @@ const theme: Theme = {
 };
 
 function App(): JSX.Element {
-  const {auth} = useStore();
-
+  const {drinker} = useStore();
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={theme}>
-        {auth?.isLoggedIn ? <AuthenticatedNavigation /> : <GetStarted />}
+        {drinker ? <AuthenticatedNavigation /> : <GetStarted />}
       </NavigationContainer>
     </SafeAreaProvider>
   );

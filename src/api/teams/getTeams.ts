@@ -1,4 +1,4 @@
-import {Team} from '../data';
+import {Team} from '../../data';
 
 export const getTeams = async (): Promise<Team[]> => {
   const token =

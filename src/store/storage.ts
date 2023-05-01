@@ -6,7 +6,7 @@ import {
   StateStorage,
   createJSONStorage,
 } from 'zustand/middleware';
-import {IAuthSlice, authSlice} from './slices/authSlice';
+import {IDrinkerSlice, drinkerSlice} from './slices/drinkerSlice';
 
 // Initializing a MMKV storage instance
 export const MMKVStorage = new MMKV();
@@ -24,13 +24,13 @@ export type StoreSlice<T> = (
   get: StoreApi<T>['getState'],
 ) => T;
 
-export type StoreState = IAuthSlice;
+export type StoreState = IDrinkerSlice;
 
 export const useStore = create<StoreState>()(
   devtools(
     persist(
       (setState, getState) => ({
-        ...authSlice(setState, getState),
+        ...drinkerSlice(setState, getState),
       }),
       {
         name: 'ZUSTAND_OFFLINE_CACHE',

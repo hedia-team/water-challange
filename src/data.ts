@@ -1,13 +1,15 @@
-export type User = {
+export type Drinker = {
   id: string;
   name: string;
 };
+
 export type Team = {
   id: string;
   name: string;
-  drinkers: User[];
+  drinkers: Drinker[];
 };
-export type Drinks = {
+
+export type Drink = {
   id: string;
   drinkerId: string;
   teamId: string;

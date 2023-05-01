@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {
   SafeAreaView,
+  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -8,43 +9,47 @@ import {
 } from 'react-native';
 
 import {COLORS} from '../styles';
-import {User} from '../data';
+import {Drinker} from '../data';
 import List from '../components/List';
 import {useStore} from '../store/storage';
 import {getDrinkers} from '../api/drinkers/getDrinkers';
 
 const GetStarted = () => {
-  const {setAuth} = useStore();
+  const {setDrinker} = useStore();
   const [name, setName] = useState('');
-  const [data, setData] = useState<User[]>([]);
+  const [data, setData] = useState<Drinker[]>([]);
 
   useEffect(() => {
     const fetchData = async () => setData(await getDrinkers());
     fetchData();
   }, []);
 
-  const selectUser = (user: User) => {
+  const selectUser = (user: Drinker) => {
     setName(user.name);
   };
 
   const completeSetup = () => {
-    setAuth({isLoggedIn: true});
+    setDrinker({name, id: `${name}`});
   };
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
-        <View>
-          <Text style={styles.header}>Who are you?</Text>
+        <Text style={styles.header}>Who are you?</Text>
+
+        <ScrollView
+          contentContainerStyle={styles.scrollViewContent}
+          showsVerticalScrollIndicator={false}>
           <List
             data={data}
             selectItem={user => selectUser(user)}
             nameSelected={name}
           />
-        </View>
+        </ScrollView>
 
         <TouchableOpacity
           style={[styles.button, name === '' && styles.disabled]}
+          disabled={name === ''}
           onPress={completeSetup}>
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>
@@ -57,6 +62,9 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: COLORS.dark,
+  },
+  scrollViewContent: {
+    paddingBottom: 32,
   },
   page: {
     flex: 1,

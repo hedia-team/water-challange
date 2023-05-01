@@ -1,6 +1,6 @@
-import {User} from '../../data';
+import {Drinker} from '../../data';
 
-export const getDrinkers = async (): Promise<User[]> => {
+export const getDrinkers = async (): Promise<Drinker[]> => {
   const token =
     'vtUWEwUgJJnz4Aay6w9TcxyUKUXsdJJdK4GdgdAiaGCiLDjqpszB7k3nk3AQAQWF';
   const url = 'https://hydratey.hedia.org/api/v1/drinkers';
