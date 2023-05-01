@@ -110,6 +110,7 @@ const ScoreboardScreen = () => {
 
         <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
           {headerIndex === 0 ? TeamListData() : DrinkerListData()}
+          <View style={{height: 24}} />
         </ScrollView>
       </View>
     </SafeAreaView>

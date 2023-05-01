@@ -17,10 +17,7 @@ const HomeScreen = () => {
 
   useFocusEffect(
     React.useCallback(() => {
-      const fetchUser = async () => {
-        const d = await getDrinks().catch();
-        setDrinks(d);
-      };
+      const fetchUser = async () => setDrinks(await getDrinks().catch());
       fetchUser();
     }, [setDrinks]),
   );
@@ -36,13 +33,15 @@ const HomeScreen = () => {
     )
     ?.filter(drink => drink.drinkerId === drinker?.id.toLowerCase());
 
-  const todayDrinks = drinkersDrinks?.filter(d =>
+  const todayDrinkerDrinks = drinkersDrinks?.filter(d =>
     isSameDay(new Date(d.createdAt)),
   );
-
-  const DRINKS = index === 0 ? todayDrinks : drinkersDrinks;
-  const todayAmount = todayDrinks?.reduce((acc, item) => acc + item.amount, 0);
+  const todayDrinks = drinks?.filter(d => isSameDay(new Date(d.createdAt)));
+  const todayAmount = todayDrinkerDrinks?.reduce((acc, i) => acc + i.amount, 0);
   const rank = getRanking(todayDrinks, drinker?.id.toLowerCase() ?? '');
+
+  const DRINKS = index === 0 ? todayDrinkerDrinks : drinkersDrinks;
+
   const sectionsData =
     DRINKS?.sort().reduce(
       (acc: Array<{title: string; data: Array<Drink>}>, item) => {

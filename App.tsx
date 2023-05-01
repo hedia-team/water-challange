@@ -10,7 +10,6 @@ import {useStore} from './src/store/storage';
 import {COLORS} from './src/styles';
 import AuthenticatedNavigation from './src/navigation/AuthenticatedNavigation';
 import {getTeams} from './src/api/teams/getTeams';
-import {getDrinks} from './src/api/drinks/getDrinks';
 
 const theme: Theme = {
   ...DefaultTheme,
@@ -22,14 +21,13 @@ const theme: Theme = {
 };
 
 function App(): JSX.Element {
-  const {drinker, setTeams, setDrinks} = useStore();
+  const {drinker, setTeams} = useStore();
+
   useEffect(() => {
     //fetch more data here
     const fetchTeams = async () => setTeams(await getTeams());
-    const fetchDrinks = async () => setDrinks(await getDrinks());
     fetchTeams();
-    fetchDrinks();
-  }, [setTeams, setDrinks]);
+  }, [setTeams]);
 
   return (
     <SafeAreaProvider>
