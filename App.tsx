@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   DefaultTheme,
   NavigationContainer,
@@ -9,6 +9,7 @@ import GetStarted from './src/screens/GetStarted';
 import {useStore} from './src/store/storage';
 import {COLORS} from './src/styles';
 import AuthenticatedNavigation from './src/navigation/AuthenticatedNavigation';
+import {getTeams} from './src/api/teams/getTeams';
 
 const theme: Theme = {
   ...DefaultTheme,
@@ -20,7 +21,13 @@ const theme: Theme = {
 };
 
 function App(): JSX.Element {
-  const {drinker} = useStore();
+  const {drinker, setTeams} = useStore();
+  useEffect(() => {
+    //fetch more data here
+    const fetchTeams = async () => setTeams(await getTeams());
+    fetchTeams();
+  }, [setTeams]);
+
   return (
     <SafeAreaProvider>
       <NavigationContainer theme={theme}>

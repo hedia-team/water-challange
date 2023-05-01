@@ -7,6 +7,8 @@ import {
   createJSONStorage,
 } from 'zustand/middleware';
 import {IDrinkerSlice, drinkerSlice} from './slices/drinkerSlice';
+import {ITeamSlice, teamSlice} from './slices/teamSlice';
+import {IDrinkSlice, drinkSlice} from './slices/drinkSlice';
 
 // Initializing a MMKV storage instance
 export const MMKVStorage = new MMKV();
@@ -24,13 +26,15 @@ export type StoreSlice<T> = (
   get: StoreApi<T>['getState'],
 ) => T;
 
-export type StoreState = IDrinkerSlice;
+export type StoreState = IDrinkerSlice & ITeamSlice & IDrinkSlice;
 
 export const useStore = create<StoreState>()(
   devtools(
     persist(
       (setState, getState) => ({
         ...drinkerSlice(setState, getState),
+        ...teamSlice(setState, getState),
+        ...drinkSlice(setState, getState),
       }),
       {
         name: 'ZUSTAND_OFFLINE_CACHE',

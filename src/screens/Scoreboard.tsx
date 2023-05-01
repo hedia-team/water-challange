@@ -1,13 +1,40 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
 import {COLORS} from '../styles';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import Crown from '../assets/icons/Crown';
 import Shit from '../assets/icons/Shit';
 import {useStore} from '../store/storage';
+import {Team} from '../data';
+
+const TeamListData = () => {
+  const {teams} = useStore();
+
+  const getIcon = (index: number) => {
+    const isFirst = index === 0;
+    const isLast = index === 4;
+    const {emptyIcon} = styles;
+    return isFirst ? <Crown /> : isLast ? <Shit /> : <View style={emptyIcon} />;
+  };
+  const listTeamItem = (team: Team, index: number) => {
+    return (
+      <View style={styles.listItem} key={index}>
+        <View style={styles.row}>
+          {getIcon(index)}
+          <Text style={styles.title}>{team.name}</Text>
+        </View>
+        <Text style={styles.units}>
+          <Text>5000</Text>
+          <Text> ml</Text>
+        </Text>
+      </View>
+    );
+  };
+  return teams?.map(listTeamItem);
+};
 
 const ScoreboardScreen = () => {
-  const [index, setIndex] = useState(0);
+  const [headerIndex, setHeaderIndex] = useState(0);
   const {drinker} = useStore();
 
   return (
@@ -21,9 +48,9 @@ const ScoreboardScreen = () => {
 
         <SegmentedControl
           values={['Team', 'User']}
-          selectedIndex={index}
+          selectedIndex={headerIndex}
           onChange={event => {
-            setIndex(event.nativeEvent.selectedSegmentIndex);
+            setHeaderIndex(event.nativeEvent.selectedSegmentIndex);
           }}
           tintColor="#636366"
           backgroundColor="#39393c"
@@ -32,46 +59,7 @@ const ScoreboardScreen = () => {
         />
 
         <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <Crown />
-              <Text style={styles.title}>1. Team 1</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>5000</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <View style={styles.emptyIcon} />
-              <Text style={styles.title}>2. Team 2</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>3000</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <View style={styles.emptyIcon} />
-              <Text style={styles.title}>3. Team 3</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>2000</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
-          <View style={styles.listItem}>
-            <View style={styles.row}>
-              <Shit />
-              <Text style={styles.title}>4. Team 4</Text>
-            </View>
-            <Text style={styles.units}>
-              <Text>500</Text>
-              <Text> ml</Text>
-            </Text>
-          </View>
+          {TeamListData()}
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -134,7 +122,8 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
+    maxWidth: '60%',
   },
   title: {
     fontFamily: 'Inter-Medium',
@@ -150,8 +139,8 @@ const styles = StyleSheet.create({
     color: COLORS.white,
   },
   emptyIcon: {
-    width: 24,
-    height: 24,
+    width: 28,
+    height: 28,
   },
 });
 export default ScoreboardScreen;

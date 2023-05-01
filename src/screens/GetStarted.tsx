@@ -20,8 +20,8 @@ const GetStarted = () => {
   const [data, setData] = useState<Drinker[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => setData(await getDrinkers());
-    fetchData();
+    const fetchDrinkers = async () => setData(await getDrinkers());
+    fetchDrinkers();
   }, []);
 
   const selectUser = (user: Drinker) => {
