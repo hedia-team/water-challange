@@ -1,15 +1,55 @@
 import React, {useState} from 'react';
+import moment from 'moment';
 import {Text, SafeAreaView, SectionList, StyleSheet, View} from 'react-native';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../styles';
 import Calendar from '../assets/icons/Calendar';
-import {INTAKE_ENTRIES} from '../data';
 import {useStore} from '../store/storage';
+import {Drink} from '../data';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
-  const {drinker} = useStore();
+  const {drinker, drinks, teams} = useStore();
+
+  const userTeam = teams?.find(team =>
+    team.drinkers?.includes(drinker?.id.toLowerCase() ?? ''),
+  );
+
+  const SectionListExample = () => {
+    const drinkersDrinks = drinks?.filter(
+      drink => drink.drinkerId === drinker?.id.toLowerCase(),
+    );
+
+    const todayDrinks = drinkersDrinks?.filter(drinks => {
+      const date = new Date(drinks.createdAt);
+      const today = new Date();
+      return (
+        date.getDate() === today.getDate() &&
+        date.getMonth() === today.getMonth() &&
+        date.getFullYear() === today.getFullYear()
+      );
+    });
+
+    const DRINKS = index === 0 ? todayDrinks : drinkersDrinks;
+
+    return DRINKS?.sort().reduce((acc, item) => {
+      const date = new Date(item.createdAt);
+      const dateString = date.toDateString();
+      const existingSectionIndex = acc.findIndex(
+        section => section.title === dateString,
+      );
+      if (existingSectionIndex >= 0) {
+        acc[existingSectionIndex].data.push(item);
+      } else {
+        acc.push({
+          title: dateString,
+          data: [item],
+        });
+      }
+      return acc;
+    }, []);
+  };
 
   const renderListHeader = () => (
     <LinearGradient
@@ -25,16 +65,20 @@ const HomeScreen = () => {
     </LinearGradient>
   );
 
-  const renderSectionHeader = ({section: {title}}) => (
+  const renderSectionHeader = ({
+    section: {title},
+  }: {
+    section: {title: string};
+  }) => (
     <View style={styles.sectionHeaderItem}>
       <Calendar style={styles.calendarIcon} />
       <Text style={styles.sectionHeader}>{title}</Text>
     </View>
   );
 
-  const renderItem = ({item}) => (
+  const renderItem = ({item}: {item: Drink}) => (
     <View style={styles.item}>
-      <Text style={styles.time}>{item.time}</Text>
+      <Text style={styles.time}>{moment(item.createdAt).format('HH:mm')}</Text>
       <Text style={styles.value}>{item.amount} ml</Text>
     </View>
   );
@@ -44,7 +88,7 @@ const HomeScreen = () => {
       <View style={styles.page}>
         <Text style={styles.user}>
           <Text>{drinker?.name}</Text>
-          <Text style={styles.team}> // Team</Text>
+          <Text style={styles.team}> // {userTeam?.name}</Text>
         </Text>
         <Text style={styles.header}>My intake</Text>
 
@@ -61,8 +105,8 @@ const HomeScreen = () => {
         />
 
         <SectionList
-          sections={INTAKE_ENTRIES}
-          keyExtractor={item => item.time}
+          sections={SectionListExample()}
+          keyExtractor={item => item.createdAt}
           renderSectionHeader={renderSectionHeader}
           renderItem={renderItem}
           showsVerticalScrollIndicator={false}

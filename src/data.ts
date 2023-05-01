@@ -6,7 +6,7 @@ export type Drinker = {
 export type Team = {
   id: string;
   name: string;
-  drinkers: Drinker[];
+  drinkers: string[];
 };
 
 export type Drink = {
@@ -16,37 +16,6 @@ export type Drink = {
   amount: number;
   createdAt: string;
 };
-
-export const INTAKE_ENTRIES = [
-  {
-    name: 'Today February 28th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-  {
-    name: 'Wednesday February 27th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-  {
-    name: 'Tuesday February 26th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-  {
-    name: 'Monday February 25th',
-    data: [
-      {time: '12:12', amount: '200'},
-      {time: '13:12', amount: '500'},
-    ],
-  },
-];
 
 export type WaterContainer = {
   id: string;
