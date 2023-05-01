@@ -18,11 +18,14 @@ const HomeScreen = () => {
 
   const intakeSections = () => {
     const drinkersDrinks = drinks
-      ?.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+      ?.sort(
+        (a, b) =>
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
+      )
       ?.filter(drink => drink.drinkerId === drinker?.id.toLowerCase());
 
-    const todayDrinks = drinkersDrinks?.filter(drinks => {
-      const date = new Date(drinks.createdAt);
+    const todayDrinks = drinkersDrinks?.filter(d => {
+      const date = new Date(d.createdAt);
       const today = new Date();
       return (
         date.getDate() === today.getDate() &&
@@ -33,22 +36,27 @@ const HomeScreen = () => {
 
     const DRINKS = index === 0 ? todayDrinks : drinkersDrinks;
 
-    return DRINKS?.sort().reduce((acc, item) => {
-      const date = new Date(item.createdAt);
-      const dateString = date.toDateString();
-      const existingSectionIndex = acc.findIndex(
-        section => section.title === dateString,
-      );
-      if (existingSectionIndex >= 0) {
-        acc[existingSectionIndex].data.push(item);
-      } else {
-        acc.push({
-          title: dateString,
-          data: [item],
-        });
-      }
-      return acc;
-    }, []);
+    return (
+      DRINKS?.sort().reduce(
+        (acc: Array<{title: string; data: Array<Drink>}>, item) => {
+          const date = new Date(item.createdAt);
+          const dateString = date.toDateString();
+          const existingSectionIndex = acc.findIndex(
+            section => section.title === dateString,
+          );
+          if (existingSectionIndex >= 0) {
+            acc[existingSectionIndex].data.push(item);
+          } else {
+            acc.push({
+              title: dateString,
+              data: [item],
+            });
+          }
+          return acc;
+        },
+        [],
+      ) ?? []
+    );
   };
 
   const renderListHeader = () => (
@@ -88,7 +96,7 @@ const HomeScreen = () => {
       <View style={styles.page}>
         <Text style={styles.user}>
           <Text>{drinker?.name}</Text>
-          <Text style={styles.team}> // {userTeam?.name}</Text>
+          <Text style={styles.team}>{` // ${userTeam?.name}`}</Text>
         </Text>
         <Text style={styles.header}>My intake</Text>
 
