@@ -5,9 +5,11 @@ import LinearGradient from 'react-native-linear-gradient';
 import {COLORS} from '../styles';
 import Calendar from '../assets/icons/Calendar';
 import {INTAKE_ENTRIES} from '../data';
+import {useStore} from '../store/storage';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
+  const {drinker} = useStore();
 
   const renderListHeader = () => (
     <LinearGradient
@@ -41,7 +43,7 @@ const HomeScreen = () => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
         <Text style={styles.user}>
-          <Text>User</Text>
+          <Text>{drinker?.name}</Text>
           <Text style={styles.team}> // Team</Text>
         </Text>
         <Text style={styles.header}>My intake</Text>

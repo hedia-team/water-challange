@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: COLORS.pink,
     borderRadius: 16,
-    marginBottom: 16,
+    marginVertical: 16,
   },
   disabled: {
     opacity: 0.5,

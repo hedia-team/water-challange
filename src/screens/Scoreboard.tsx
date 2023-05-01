@@ -4,15 +4,17 @@ import {COLORS} from '../styles';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import Crown from '../assets/icons/Crown';
 import Shit from '../assets/icons/Shit';
+import {useStore} from '../store/storage';
 
 const ScoreboardScreen = () => {
   const [index, setIndex] = useState(0);
+  const {drinker} = useStore();
 
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
         <Text style={styles.user}>
-          <Text>User</Text>
+          <Text>{drinker?.name}</Text>
           <Text style={styles.team}> // Team</Text>
         </Text>
         <Text style={styles.header}>Scorebord</Text>
