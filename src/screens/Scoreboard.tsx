@@ -7,34 +7,33 @@ import Shit from '../assets/icons/Shit';
 import {useStore} from '../store/storage';
 import {Team} from '../data';
 
+const getIcon = (index: number, maxIndex: number) => {
+  const isFirst = index === 0;
+  const isLast = index === maxIndex;
+  const {emptyIcon} = styles;
+  return isFirst ? <Crown /> : isLast ? <Shit /> : <View style={emptyIcon} />;
+};
+
 const TeamListData = () => {
   const {teams, drinks} = useStore();
 
-  const getIcon = (index: number) => {
-    const isFirst = index === 0;
-    const isLast = index === 4;
-    const {emptyIcon} = styles;
-    return isFirst ? <Crown /> : isLast ? <Shit /> : <View style={emptyIcon} />;
-  };
-
   const sortTeamsByTotalAmount = (): Team[] => {
-    const teamsWithTotalAmount = teams?.map(team => ({
-      team,
-      totalAmount: drinks
-        ?.filter(d => d.teamId === team.id)
-        .reduce((total, d) => total + d.amount, 0),
-    }));
+    const teamsWithTotalAmount =
+      teams?.map(team => ({
+        team,
+        totalAmount: drinks
+          ?.filter(d => d.teamId === team.id)
+          .reduce((total, d) => total + d.amount, 0),
+      })) ?? [];
 
-    teamsWithTotalAmount?.sort((a, b) => b?.totalAmount - a?.totalAmount);
+    teamsWithTotalAmount.sort((a, b) => b?.totalAmount - a?.totalAmount);
 
-    return teamsWithTotalAmount.map(t => t.team);
+    return teamsWithTotalAmount?.map(t => t.team) ?? [];
   };
 
   const listTeamItem = (team: Team, index: number) => {
-    console.log('🔥 teamId', team.id);
-
     const calculateTotalAmountByTeamId = (teamId: string): number => {
-      const filteredDrinks = drinks?.filter(d => d.teamId === teamId);
+      const filteredDrinks = drinks?.filter(d => d.teamId === teamId) ?? [];
       return (
         filteredDrinks.reduce((total, drink) => total + drink.amount, 0) ?? []
       );
@@ -43,7 +42,7 @@ const TeamListData = () => {
     return (
       <View style={styles.listItem} key={index}>
         <View style={styles.row}>
-          {getIcon(index)}
+          {getIcon(index, 4)}
           <Text style={styles.title}>{team.name}</Text>
         </View>
         <Text style={styles.units}>
@@ -54,6 +53,48 @@ const TeamListData = () => {
     );
   };
   return sortTeamsByTotalAmount()?.map(listTeamItem);
+};
+
+const DrinkerListData = () => {
+  const {drinks} = useStore();
+  interface TotalByDrinker {
+    [drinkerId: string]: number;
+  }
+
+  const totalByDrinker: TotalByDrinker = drinks?.reduce(
+    (acc: TotalByDrinker, curr) => {
+      const {drinkerId, amount} = curr;
+      acc[drinkerId] = acc[drinkerId] ? acc[drinkerId] + amount : amount;
+      return acc;
+    },
+    {},
+  );
+
+  const sortedDrinkers = Object.entries(totalByDrinker)
+    .sort(([, a], [, b]) => b - a)
+    .map(([drinkerId, total]) => ({drinkerId, total}));
+  const sortedDrinkersLength = sortedDrinkers?.length ?? 0;
+
+  const listDrinkerItem = (
+    {drinkerId, total}: {drinkerId: string; total: number},
+    index: number,
+  ) => {
+    console.log({drinkerId, total});
+    return (
+      <View style={styles.listItem} key={index}>
+        <View style={styles.row}>
+          {getIcon(index, sortedDrinkersLength - 1)}
+          <Text style={styles.title}>{drinkerId}</Text>
+        </View>
+        <Text style={styles.units}>
+          <Text>{total}</Text>
+          <Text> ml</Text>
+        </Text>
+      </View>
+    );
+  };
+
+  return sortedDrinkers?.map(listDrinkerItem);
 };
 
 const ScoreboardScreen = () => {
@@ -69,7 +110,7 @@ const ScoreboardScreen = () => {
       <View style={styles.page}>
         <Text style={styles.user}>
           <Text>{drinker?.name}</Text>
-          <Text style={styles.team}> // {userTeam?.name}</Text>
+          <Text style={styles.team}>{` // ${userTeam?.name}`}</Text>
         </Text>
         <Text style={styles.header}>Scorebord</Text>
 
@@ -86,7 +127,7 @@ const ScoreboardScreen = () => {
         />
 
         <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
-          {TeamListData()}
+          {headerIndex === 0 ? TeamListData() : DrinkerListData()}
         </ScrollView>
       </View>
     </SafeAreaView>

@@ -2,13 +2,13 @@ import {Drink} from '../../data';
 import {StoreSlice} from '../storage';
 
 export interface IDrinkSlice {
-  drinks: Drink[] | null;
+  drinks: Drink[];
   setDrinks: (teams: Drink[]) => void;
   unsetDrinks: () => void;
 }
 
 export const drinkSlice: StoreSlice<IDrinkSlice> = set => ({
-  drinks: null,
+  drinks: [],
   setDrinks: drinks => set({drinks}),
-  unsetDrinks: () => set({drinks: null}),
+  unsetDrinks: () => set({drinks: []}),
 });
