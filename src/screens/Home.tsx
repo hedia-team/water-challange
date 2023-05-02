@@ -1,6 +1,15 @@
 import React, {useState} from 'react';
 import moment from 'moment';
-import {Text, SafeAreaView, SectionList, StyleSheet, View} from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  SectionList,
+  StyleSheet,
+  View,
+  TouchableOpacity,
+  RefreshControl,
+  Alert,
+} from 'react-native';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import LinearGradient from 'react-native-linear-gradient';
 import {useFocusEffect} from '@react-navigation/native';
@@ -11,9 +20,12 @@ import {Drink} from '../data';
 import {getDrinks} from '../api/drinks/getDrinks';
 import {getRanking} from './utils';
 import {LinearGradientText} from 'react-native-linear-gradient-text';
+import Close from '../assets/icons/Close';
+import {deleteDrink} from '../api/drinks/deleteDrinks';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
   const {drinker, drinks, teams, setDrinks} = useStore();
 
   useFocusEffect(
@@ -26,6 +38,12 @@ const HomeScreen = () => {
   const userTeam = teams?.find(team =>
     team.drinkers?.includes(drinker?.id.toLowerCase() ?? ''),
   );
+
+  const onPressDeleteDrink = async (id: string) => {
+    await deleteDrink(id);
+    const d = await getDrinks().catch();
+    setDrinks(d);
+  };
 
   const drinkersDrinks = drinks
     ?.sort(
@@ -89,12 +107,41 @@ const HomeScreen = () => {
     </View>
   );
 
-  const renderItem = ({item}: {item: Drink}) => (
-    <View style={styles.item}>
-      <Text style={styles.time}>{moment(item.createdAt).format('HH:mm')}</Text>
-      <Text style={styles.value}>{item.amount} ml</Text>
-    </View>
-  );
+  const renderItem = ({item}: {item: Drink}) => {
+    const onPress = () =>
+      Alert.alert('Hey!', 'Are you sure you want to remove your entry?', [
+        {text: 'OK', onPress: async () => onPressDeleteDrink(item.id)},
+        {text: 'Cancel'},
+      ]);
+    return (
+      <View style={styles.item}>
+        <Text style={styles.time}>
+          {moment(item.createdAt).format('HH:mm')}
+        </Text>
+        <View style={{flexDirection: `row`}}>
+          <Text style={styles.value}>{item.amount} ml</Text>
+          <TouchableOpacity style={{marginLeft: 5}} onPress={onPress}>
+            <Close />
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  };
+  const refreshControl = () => {
+    const onRefresh = async () => {
+      setRefreshing(true);
+      setDrinks(await getDrinks());
+      setRefreshing(false);
+    };
+
+    return (
+      <RefreshControl
+        tintColor={COLORS.pink}
+        refreshing={refreshing}
+        onRefresh={onRefresh}
+      />
+    );
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -131,6 +178,7 @@ const HomeScreen = () => {
           showsVerticalScrollIndicator={false}
           ListHeaderComponent={renderListHeader}
           renderSectionFooter={() => <View style={styles.separator} />}
+          refreshControl={refreshControl()}
         />
       </View>
     </SafeAreaView>
@@ -199,6 +247,7 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    alignContent: 'center',
   },
   amount: {
     fontFamily: 'Inter-Bold',
@@ -245,6 +294,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     paddingHorizontal: 8,
     justifyContent: 'space-between',
+    alignItems: 'center',
   },
   time: {
     fontFamily: 'Inter-Regular',

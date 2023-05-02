@@ -25,10 +25,13 @@ export const getSortedDrinkers = (drinks: Array<Drink>) => {
 
 export const getRanking = (drinks: Array<Drink>, drinkerId: string) => {
   const sortedDrinkersWithAmount = getSortedDrinkers(drinks);
-  return (
-    sortedDrinkersWithAmount.findIndex(({drinkerId: id}) => id === drinkerId) +
-    1
+  const index = sortedDrinkersWithAmount.findIndex(
+    ({drinkerId: id}) => id === drinkerId,
   );
+  if (index === -1) {
+    return sortedDrinkersWithAmount.length;
+  }
+  return index + 1;
 };
 
 export const sortTeamsByTotalAmount = (
