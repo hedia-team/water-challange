@@ -10,6 +10,7 @@ import {useStore} from '../store/storage';
 import {Drink} from '../data';
 import {getDrinks} from '../api/drinks/getDrinks';
 import {getRanking} from './utils';
+import {LinearGradientText} from 'react-native-linear-gradient-text';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
@@ -102,7 +103,13 @@ const HomeScreen = () => {
           <Text>{drinker?.name}</Text>
           <Text style={styles.team}>{` // ${userTeam?.name}`}</Text>
         </Text>
-        <Text style={styles.header}>My intake</Text>
+        <LinearGradientText
+          colors={[COLORS.pink, COLORS.blue]}
+          text="My intake"
+          start={{x: 0.0, y: 0}}
+          end={{x: 0.4, y: 0}}
+          textStyle={styles.header}
+        />
 
         <SegmentedControl
           values={['Today', 'Overall']}

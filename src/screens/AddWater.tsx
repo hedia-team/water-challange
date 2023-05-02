@@ -15,6 +15,8 @@ import List from '../components/List';
 import {createDrinks} from '../api/drinks/createDrinks';
 import {useStore} from '../store/storage';
 
+import {LinearGradientText} from 'react-native-linear-gradient-text';
+
 const AddWater = ({navigation}) => {
   const {drinker} = useStore();
   const [drink, setDrink] = useState({name: '', capacity: 0});
@@ -45,7 +47,13 @@ const AddWater = ({navigation}) => {
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
         <View>
-          <Text style={styles.header}>Add Water</Text>
+          <LinearGradientText
+            colors={[COLORS.pink, COLORS.blue]}
+            text="Add Water"
+            start={{x: 0.0, y: 0}}
+            end={{x: 0.8, y: 0}}
+            textStyle={styles.header}
+          />
           <List
             data={WATER_CONTAINER}
             selectItem={selectItem}
