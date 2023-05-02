@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {Text, SafeAreaView, StyleSheet, View, ScrollView} from 'react-native';
+import {
+  Text,
+  SafeAreaView,
+  StyleSheet,
+  View,
+  ScrollView,
+  RefreshControl,
+} from 'react-native';
 import {COLORS} from '../styles';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import Crown from '../assets/icons/Crown';
@@ -44,7 +51,7 @@ const TeamListData = () => {
 };
 
 const DrinkerListData = () => {
-  const {drinks} = useStore();
+  const {drinks, teams} = useStore();
   const sortedDrinkers = getSortedDrinkers(drinks);
   const sortedDrinkersLength = sortedDrinkers?.length ?? 0;
 
@@ -52,11 +59,18 @@ const DrinkerListData = () => {
     {drinkerId, total}: {drinkerId: string; total: number},
     index: number,
   ) => {
+    const userTeam = teams?.find(team =>
+      team.drinkers?.includes(drinkerId?.toLowerCase() ?? ''),
+    );
+    drinkerId = drinkerId?.charAt(0).toUpperCase() + drinkerId?.slice(1);
     return (
       <View style={styles.listItem} key={index}>
         <View style={styles.row}>
           {getIcon(index, sortedDrinkersLength - 1)}
-          <Text style={styles.title}>{drinkerId}</Text>
+          <View>
+            <Text style={styles.title}>{drinkerId}</Text>
+            <Text style={styles.subtitle}>{`${userTeam?.name}`}</Text>
+          </View>
         </View>
         <Text style={styles.units}>
           <Text>{total}</Text>
@@ -71,6 +85,7 @@ const DrinkerListData = () => {
 
 const ScoreboardScreen = () => {
   const [headerIndex, setHeaderIndex] = useState(0);
+  const [refreshing, setRefreshing] = useState(false);
   const {drinker, teams, setDrinks} = useStore();
 
   const userTeam = teams?.find(team =>
@@ -86,6 +101,21 @@ const ScoreboardScreen = () => {
       fetchUser();
     }, [setDrinks]),
   );
+  const refreshControl = () => {
+    const onRefresh = async () => {
+      setRefreshing(true);
+      setDrinks(await getDrinks());
+      setRefreshing(false);
+    };
+
+    return (
+      <RefreshControl
+        tintColor={COLORS.pink}
+        refreshing={refreshing}
+        onRefresh={onRefresh}
+      />
+    );
+  };
 
   return (
     <SafeAreaView style={styles.safeArea}>
@@ -108,7 +138,10 @@ const ScoreboardScreen = () => {
           activeFontStyle={styles.whiteText}
         />
 
-        <ScrollView style={styles.list} showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={styles.list}
+          showsVerticalScrollIndicator={false}
+          refreshControl={refreshControl()}>
           {headerIndex === 0 ? TeamListData() : DrinkerListData()}
           <View style={{height: 24}} />
         </ScrollView>
@@ -170,17 +203,25 @@ const styles = StyleSheet.create({
     paddingVertical: 22,
     borderBottomColor: '#38383A',
     borderBottomWidth: 0.5,
+    alignItems: 'center',
   },
   row: {
     flexDirection: 'row',
-    alignItems: 'flex-start',
-    maxWidth: '60%',
+    alignItems: 'center',
+    maxWidth: '65%',
   },
   title: {
     fontFamily: 'Inter-Medium',
     fontSize: 17,
     lineHeight: 22,
     color: COLORS.white,
+    marginLeft: 8,
+  },
+  subtitle: {
+    fontFamily: 'Inter-Medium',
+    fontSize: 14,
+    lineHeight: 17,
+    color: '#BEBEBE',
     marginLeft: 8,
   },
   units: {
