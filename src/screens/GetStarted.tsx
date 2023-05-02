@@ -14,6 +14,8 @@ import List from '../components/List';
 import {useStore} from '../store/storage';
 import {getDrinkers} from '../api/drinkers/getDrinkers';
 
+import {LinearGradientText} from 'react-native-linear-gradient-text';
+
 const GetStarted = () => {
   const {setDrinker} = useStore();
   const [name, setName] = useState('');
@@ -35,8 +37,13 @@ const GetStarted = () => {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.page}>
-        <Text style={styles.header}>Who are you?</Text>
-
+        <LinearGradientText
+          colors={[COLORS.pink, COLORS.blue]}
+          text="Who are you?"
+          start={{x: 0.0, y: 0}}
+          end={{x: 0.8, y: 0}}
+          textStyle={styles.header}
+        />
         <ScrollView
           contentContainerStyle={styles.scrollViewContent}
           showsVerticalScrollIndicator={false}>

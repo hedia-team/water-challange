@@ -19,6 +19,7 @@ import {
   getSortedDrinkers,
   sortTeamsByTotalAmount,
 } from './utils';
+import {LinearGradientText} from 'react-native-linear-gradient-text';
 
 const getIcon = (index: number, maxIndex: number) => {
   const isFirst = index === 0;
@@ -124,8 +125,13 @@ const ScoreboardScreen = () => {
           <Text>{drinker?.name}</Text>
           <Text style={styles.team}>{` // ${userTeam?.name}`}</Text>
         </Text>
-        <Text style={styles.header}>Scoreboard</Text>
-
+        <LinearGradientText
+          colors={[COLORS.pink, COLORS.blue]}
+          text="Scoreboard"
+          start={{x: 0.0, y: 0}}
+          end={{x: 0.4, y: 0}}
+          textStyle={styles.header}
+        />
         <SegmentedControl
           values={['Team', 'User']}
           selectedIndex={headerIndex}
