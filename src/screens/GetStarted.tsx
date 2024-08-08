@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import {COLORS} from '../styles';
-import {Drinker} from '../data';
+import {Drinker} from '../types';
 import List from '../components/List';
 import {useStore} from '../store/storage';
 import {getDrinkers} from '../api/drinkers/getDrinkers';
@@ -18,7 +18,7 @@ import {LinearGradientText} from 'react-native-linear-gradient-text';
 
 const GetStarted = () => {
   const {setDrinker} = useStore();
-  const [name, setName] = useState('');
+  const [selectedUser, setSelectedUser] = useState<Drinker>();
   const [data, setData] = useState<Drinker[]>([]);
 
   useEffect(() => {
@@ -27,11 +27,13 @@ const GetStarted = () => {
   }, []);
 
   const selectUser = (user: Drinker) => {
-    setName(user.name);
+    setSelectedUser(user);
   };
 
   const completeSetup = () => {
-    setDrinker({name, id: `${name}`});
+    if (selectedUser) {
+      setDrinker(selectedUser);
+    }
   };
 
   return (
@@ -50,13 +52,13 @@ const GetStarted = () => {
           <List
             data={data}
             selectItem={user => selectUser(user)}
-            nameSelected={name}
+            nameSelected={selectedUser?.name ?? ''}
           />
         </ScrollView>
 
         <TouchableOpacity
-          style={[styles.button, name === '' && styles.disabled]}
-          disabled={name === ''}
+          style={[styles.button, selectedUser === undefined && styles.disabled]}
+          disabled={selectedUser === undefined}
           onPress={completeSetup}>
           <Text style={styles.buttonText}>Get Started</Text>
         </TouchableOpacity>

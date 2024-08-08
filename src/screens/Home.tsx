@@ -16,7 +16,7 @@ import {useFocusEffect} from '@react-navigation/native';
 import {COLORS} from '../styles';
 import Calendar from '../assets/icons/Calendar';
 import {useStore} from '../store/storage';
-import {Drink} from '../data';
+import {Drink} from '../types';
 import {getDrinks} from '../api/drinks/getDrinks';
 import {getRanking} from './utils';
 import {LinearGradientText} from 'react-native-linear-gradient-text';

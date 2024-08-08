@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLORS} from '../styles';
 import Checkmark from '../assets/icons/Checkmark';
-import {Drinker, WaterContainer} from '../data';
+import {Drinker, WaterContainer} from '../types';
 
 type DataProps<T> = {
   data: Array<T>;

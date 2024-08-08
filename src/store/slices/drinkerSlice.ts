@@ -1,4 +1,4 @@
-import {Drinker} from '../../data';
+import {Drinker} from '../../types';
 import {StoreSlice} from '../storage';
 
 export interface IDrinkerSlice {

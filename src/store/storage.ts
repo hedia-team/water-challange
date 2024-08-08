@@ -12,6 +12,7 @@ import {IDrinkSlice, drinkSlice} from './slices/drinkSlice';
 
 // Initializing a MMKV storage instance
 export const MMKVStorage = new MMKV();
+// MMKVStorage.clearAll();
 
 const MMKVZustandPersister = (): StateStorage => {
   return {

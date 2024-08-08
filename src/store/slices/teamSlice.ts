@@ -1,4 +1,4 @@
-import {Team} from '../../data';
+import {Team} from '../../types';
 import {StoreSlice} from '../storage';
 
 export interface ITeamSlice {

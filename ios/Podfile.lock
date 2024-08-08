@@ -83,9 +83,9 @@ PODS:
   - lottie-react-native (5.1.5):
     - lottie-ios (~> 3.4.0)
     - React-Core
-  - MMKV (1.2.16):
-    - MMKVCore (~> 1.2.16)
-  - MMKVCore (1.2.16)
+  - MMKV (1.3.9):
+    - MMKVCore (~> 1.3.9)
+  - MMKVCore (1.3.9)
   - OpenSSL-Universal (1.1.1100)
   - RCT-Folly (2021.07.22.00):
     - boost
@@ -338,8 +338,9 @@ PODS:
   - React-jsinspector (0.71.7)
   - React-logger (0.71.7):
     - glog
-  - react-native-mmkv (2.8.0):
-    - MMKV (>= 1.2.13)
+  - react-native-mmkv (2.12.2):
+    - MMKV (>= 1.3.3)
+    - RCT-Folly (= 2021.07.22.00)
     - React-Core
   - react-native-safe-area-context (4.5.1):
     - RCT-Folly
@@ -440,8 +441,6 @@ PODS:
     - React-RCTImage
   - RNSVG (13.9.0):
     - React-Core
-  - RNTextGradientView (0.1.7):
-    - React
   - SocketRocket (0.6.0)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
@@ -514,7 +513,6 @@ DEPENDENCIES:
   - "RNCMaskedView (from `../node_modules/@react-native-masked-view/masked-view`)"
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
-  - RNTextGradientView (from `../node_modules/react-native-text-gradient`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -621,8 +619,6 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
-  RNTextGradientView:
-    :path: "../node_modules/react-native-text-gradient"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -648,8 +644,8 @@ SPEC CHECKSUMS:
   libevent: 4049cae6c81cdb3654a443be001fb9bdceff7913
   lottie-ios: 8f97d3271e155c2d688875c29cd3c74908aef5f8
   lottie-react-native: 3e722c63015fdb9c27638b0a77969fc412067c18
-  MMKV: 784471ce430a2e2d16afef9053d63fab1b357d9e
-  MMKVCore: 9cfef4c48c6c46f66226fc2e4634d78490206a48
+  MMKV: 817ba1eea17421547e01e087285606eb270a8dcb
+  MMKVCore: af055b00e27d88cd92fad301c5fecd1ff9b26dd9
   OpenSSL-Universal: ebc357f1e6bc71fa463ccb2fe676756aff50e88c
   RCT-Folly: 424b8c9a7a0b9ab2886ffe9c3b041ef628fd4fb1
   RCTRequired: 5a4a30ac20c86eeadd6844a9328f78d4168cf9b2
@@ -665,7 +661,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: eaa5f71eb8f6861cf0e57f1a0f52aeb020d9e18e
   React-jsinspector: 9885f6f94d231b95a739ef7bb50536fb87ce7539
   React-logger: 3f8ebad1be1bf3299d1ab6d7f971802d7395c7ef
-  react-native-mmkv: 7da5e18e55c04a9af9a7e0ab9792a1e8d33765a1
+  react-native-mmkv: 38d484ccd8f5760fe0e46d206ed07add5ddda1fc
   react-native-safe-area-context: f5549f36508b1b7497434baa0cd97d7e470920d4
   react-native-segmented-control: 0e4b5d93911e2234f110057df2b41738b326ab3e
   React-perflogger: 2d505bbe298e3b7bacdd9e542b15535be07220f6
@@ -684,11 +680,10 @@ SPEC CHECKSUMS:
   RNCMaskedView: 949696f25ec596bfc697fc88e6f95cf0c79669b6
   RNScreens: 218801c16a2782546d30bd2026bb625c0302d70f
   RNSVG: 53c661b76829783cdaf9b7a57258f3d3b4c28315
-  RNTextGradientView: 3eb4744303f801546fad35ac47a53cc82257cb25
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
   Yoga: d56980c8914db0b51692f55533409e844b66133c
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
 PODFILE CHECKSUM: 670bbaa377d26073e2de5e2217e0351036993a1d
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.15.2

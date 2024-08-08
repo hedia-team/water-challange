@@ -1,67 +1,211 @@
-export type Drinker = {
-  id: string;
-  name: string;
-};
+import {Drink, Drinker, Team} from './types';
 
-export type Team = {
-  id: string;
-  name: string;
-  drinkers: string[];
-};
+export const mockDrinkers: Drinker[] = [
+  {id: '1', name: 'Alice'},
+  {id: '2', name: 'Bob'},
+  {id: '3', name: 'Charlie'},
+];
 
-export type Drink = {
-  id: string;
-  drinkerId: string;
-  teamId: string;
-  amount: number;
-  createdAt: string;
-};
+export const mockTeams: Team[] = [
+  {id: '1', name: 'Team Alpha', drinkers: ['1', '2']},
+  {id: '2', name: 'Team Beta', drinkers: ['3']},
+];
 
-export type WaterContainer = {
-  id: string;
-  name: string;
-  capacity: number;
-};
-
-export const WATER_CONTAINER: Array<WaterContainer> = [
+export const mockDrinks: Drink[] = [
   {
     id: '1',
-    name: '50 ml',
-    capacity: 50,
+    drinkerId: '1',
+    teamId: '1',
+    amount: 150,
+    createdAt: '2024-08-01T12:00:00Z',
   },
   {
     id: '2',
-    name: '100 ml',
-    capacity: 100,
+    drinkerId: '2',
+    teamId: '1',
+    amount: 200,
+    createdAt: '2024-08-01T13:00:00Z',
   },
   {
     id: '3',
-    name: '150 ml',
-    capacity: 150,
+    drinkerId: '3',
+    teamId: '2',
+    amount: 250,
+    createdAt: '2024-08-01T14:00:00Z',
   },
   {
     id: '4',
-    name: '200 ml',
-    capacity: 200,
+    drinkerId: '1',
+    teamId: '1',
+    amount: 100,
+    createdAt: '2024-08-02T08:00:00Z',
   },
   {
     id: '5',
-    name: '250 ml',
-    capacity: 250,
+    drinkerId: '2',
+    teamId: '1',
+    amount: 300,
+    createdAt: '2024-08-02T09:00:00Z',
   },
   {
     id: '6',
-    name: 'Soda Stream Bottle (840 ml)',
-    capacity: 840,
+    drinkerId: '3',
+    teamId: '2',
+    amount: 400,
+    createdAt: '2024-08-02T10:00:00Z',
   },
   {
     id: '7',
-    name: 'Hedia glass - (300 ml)',
-    capacity: 300,
+    drinkerId: '1',
+    teamId: '1',
+    amount: 150,
+    createdAt: '2024-08-03T11:00:00Z',
   },
   {
     id: '8',
-    name: 'Water bottle - (500 ml)',
-    capacity: 500,
+    drinkerId: '2',
+    teamId: '1',
+    amount: 100,
+    createdAt: '2024-08-03T12:00:00Z',
+  },
+  {
+    id: '9',
+    drinkerId: '3',
+    teamId: '2',
+    amount: 200,
+    createdAt: '2024-08-03T13:00:00Z',
+  },
+  {
+    id: '10',
+    drinkerId: '1',
+    teamId: '1',
+    amount: 250,
+    createdAt: '2024-08-04T14:00:00Z',
+  },
+  {
+    id: '11',
+    drinkerId: '2',
+    teamId: '1',
+    amount: 200,
+    createdAt: '2024-08-04T15:00:00Z',
+  },
+  {
+    id: '12',
+    drinkerId: '3',
+    teamId: '2',
+    amount: 300,
+    createdAt: '2024-08-04T16:00:00Z',
+  },
+  {
+    id: '13',
+    drinkerId: '1',
+    teamId: '1',
+    amount: 100,
+    createdAt: '2024-08-05T17:00:00Z',
+  },
+  {
+    id: '14',
+    drinkerId: '2',
+    teamId: '1',
+    amount: 150,
+    createdAt: '2024-08-05T18:00:00Z',
+  },
+  {
+    id: '15',
+    drinkerId: '3',
+    teamId: '2',
+    amount: 250,
+    createdAt: '2024-08-05T19:00:00Z',
+  },
+  {
+    id: '16',
+    drinkerId: '1',
+    teamId: '1',
+    amount: 200,
+    createdAt: '2024-08-06T20:00:00Z',
+  },
+  {
+    id: '17',
+    drinkerId: '2',
+    teamId: '1',
+    amount: 300,
+    createdAt: '2024-08-06T21:00:00Z',
+  },
+  {
+    id: '18',
+    drinkerId: '3',
+    teamId: '2',
+    amount: 400,
+    createdAt: '2024-08-06T22:00:00Z',
+  },
+  {
+    id: '19',
+    drinkerId: '1',
+    teamId: '1',
+    amount: 150,
+    createdAt: '2024-08-07T23:00:00Z',
+  },
+  {
+    id: '20',
+    drinkerId: '2',
+    teamId: '1',
+    amount: 100,
+    createdAt: '2024-08-08T00:00:00Z',
+  },
+  {
+    id: '21',
+    drinkerId: '3',
+    teamId: '2',
+    amount: 200,
+    createdAt: '2024-08-08T01:00:00Z',
+  },
+  {
+    id: '22',
+    drinkerId: '1',
+    teamId: '1',
+    amount: 250,
+    createdAt: '2024-08-09T02:00:00Z',
+  },
+  {
+    id: '23',
+    drinkerId: '2',
+    teamId: '1',
+    amount: 200,
+    createdAt: '2024-08-09T03:00:00Z',
+  },
+  {
+    id: '24',
+    drinkerId: '3',
+    teamId: '2',
+    amount: 300,
+    createdAt: '2024-08-09T04:00:00Z',
+  },
+  {
+    id: '25',
+    drinkerId: '1',
+    teamId: '1',
+    amount: 100,
+    createdAt: '2024-08-09T05:00:00Z',
+  },
+  {
+    id: '26',
+    drinkerId: '2',
+    teamId: '1',
+    amount: 150,
+    createdAt: '2024-08-09T06:00:00Z',
+  },
+  {
+    id: '27',
+    drinkerId: '3',
+    teamId: '2',
+    amount: 250,
+    createdAt: '2024-08-09T07:00:00Z',
+  },
+  {
+    id: '28',
+    drinkerId: '1',
+    teamId: '1',
+    amount: 200,
+    createdAt: '2024-08-09T08:00:00Z',
   },
 ];

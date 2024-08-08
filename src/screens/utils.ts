@@ -1,4 +1,4 @@
-import {Drink, Team} from '../data';
+import {Drink, Team} from '../types';
 interface TotalByDrinker {
   [drinkerId: string]: number;
 }

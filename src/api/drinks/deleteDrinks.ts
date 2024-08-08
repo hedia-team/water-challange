@@ -1,13 +1,9 @@
-export const deleteDrink = async (drinkId: string): Promise<void> => {
-  const token =
-    'vtUWEwUgJJnz4Aay6w9TcxyUKUXsdJJdK4GdgdAiaGCiLDjqpszB7k3nk3AQAQWF';
-  const url = `https://hydratey.hedia.org/api/v1/drinks/${drinkId}`;
-  const options = {
-    method: 'DELETE',
-    headers: {
-      Authorization: `token ${token}`,
-    },
-  };
+import {mockDrinks} from '../../data';
 
-  await fetch(url, options);
+export const deleteDrink = async (drinkId: string): Promise<void> => {
+  const index = mockDrinks.findIndex(drink => drink.id === drinkId);
+  if (index !== -1) {
+    mockDrinks.splice(index, 1);
+  }
+  return new Promise(resolve => resolve());
 };

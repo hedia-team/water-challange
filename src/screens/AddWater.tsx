@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import {COLORS} from '../styles';
-import {WaterContainer, WATER_CONTAINER} from '../data';
+import {WaterContainer, WATER_CONTAINER} from '../types';
 import List from '../components/List';
 import {createDrinks} from '../api/drinks/createDrinks';
 import {useStore} from '../store/storage';
@@ -31,7 +31,7 @@ const AddWater = ({navigation}) => {
         duration: 1000,
         useNativeDriver: true,
       }).start(async ({finished}) => {
-        await createDrinks(drinker!.id.toLowerCase(), drink.capacity);
+        await createDrinks(drinker!.id, drink.capacity);
         finished && navigation.goBack();
       });
   }, [animation, current, drink, drinker, navigation]);

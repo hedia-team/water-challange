@@ -63,6 +63,7 @@ const DrinkerListData = () => {
     const userTeam = teams?.find(team =>
       team.drinkers?.includes(drinkerId?.toLowerCase() ?? ''),
     );
+
     drinkerId = drinkerId?.charAt(0).toUpperCase() + drinkerId?.slice(1);
     return (
       <View style={styles.listItem} key={index}>
