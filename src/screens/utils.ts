@@ -23,28 +23,21 @@ export const getSortedDrinkers = (drinks: Array<Drink>) => {
   return sortedDrinkersWithAmount;
 };
 
+/*
+Using the getSortedDrinkers function, implement the getRanking function
+that returns the ranking of a drinker based on the total amount of drinks they have consumed. 
+*/
 export const getRanking = (drinks: Array<Drink>, drinkerId: string) => {
-  const sortedDrinkersWithAmount = getSortedDrinkers(drinks);
-  const index = sortedDrinkersWithAmount.findIndex(
-    ({drinkerId: id}) => id === drinkerId,
-  );
-  if (index === -1) {
-    return sortedDrinkersWithAmount.length;
-  }
-  return index + 1;
+  return 1;
 };
 
+/*
+Implement the sortTeamsByTotalAmount function that takes an array of teams and an array of drinks
+and returns an array of TeamWithTotalAmount objects.
+*/
 export const sortTeamsByTotalAmount = (
   teams: Team[],
   drinks: Drink[],
 ): TeamWithTotalAmount[] => {
-  const teamsWithTotalAmount =
-    teams?.map(team => ({
-      team,
-      totalAmount: drinks
-        ?.filter(d => d.teamId === team.id)
-        .reduce((total, d) => total + d.amount, 0),
-    })) ?? [];
-
-  return teamsWithTotalAmount.sort((a, b) => b!.totalAmount - a!.totalAmount);
+  return [];
 };

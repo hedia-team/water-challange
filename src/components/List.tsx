@@ -1,8 +1,13 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {COLORS} from '../styles';
-import Checkmark from '../assets/icons/Checkmark';
+// import Checkmark from '../assets/icons/Checkmark';
 import {Drinker, WaterContainer} from '../types';
+
+/*
+Enhance the List component to visually indicate the selected item by displaying a checkmark next to it.
+Ensure the Checkmark icon is imported and conditionally rendered based on the selected item's name.
+*/
 
 type DataProps<T> = {
   data: Array<T>;
@@ -39,10 +44,9 @@ type ItemProps = {
   nameSelected: string;
 };
 
-const Item = ({name, selectItem, nameSelected}: ItemProps) => (
+const Item = ({name, selectItem}: ItemProps) => (
   <TouchableOpacity style={styles.item} onPress={selectItem}>
     <Text style={styles.name}>{name}</Text>
-    {name === nameSelected && <Checkmark style={styles.icon} />}
   </TouchableOpacity>
 );
 

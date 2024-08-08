@@ -21,6 +21,12 @@ import {
 } from './utils';
 import {LinearGradientText} from 'react-native-linear-gradient-text';
 
+/*
+Update the ScoreboardScreen component to reintroduce the segmented control
+for switching between team and user views, and restore the list data rendering accordingly.
+ Ensure both views are displayed correctly based on the selected segment.
+*/
+
 const getIcon = (index: number, maxIndex: number) => {
   const isFirst = index === 0;
   const isLast = index === maxIndex;
@@ -65,6 +71,7 @@ const DrinkerListData = () => {
     );
 
     drinkerId = drinkerId?.charAt(0).toUpperCase() + drinkerId?.slice(1);
+
     return (
       <View style={styles.listItem} key={index}>
         <View style={styles.row}>
@@ -86,7 +93,6 @@ const DrinkerListData = () => {
 };
 
 const ScoreboardScreen = () => {
-  const [headerIndex, setHeaderIndex] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
   const {drinker, teams, setDrinks} = useStore();
 
@@ -135,10 +141,6 @@ const ScoreboardScreen = () => {
         />
         <SegmentedControl
           values={['Team', 'User']}
-          selectedIndex={headerIndex}
-          onChange={event => {
-            setHeaderIndex(event.nativeEvent.selectedSegmentIndex);
-          }}
           tintColor="#636366"
           backgroundColor="#39393c"
           fontStyle={styles.whiteText}
@@ -146,11 +148,12 @@ const ScoreboardScreen = () => {
         />
 
         <ScrollView
-          style={styles.list}
+          contentContainerStyle={styles.contentContainerList}
           showsVerticalScrollIndicator={false}
           refreshControl={refreshControl()}>
-          {headerIndex === 0 ? TeamListData() : DrinkerListData()}
-          <View style={{height: 24}} />
+          {
+            // Add the content
+          }
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -201,8 +204,8 @@ const styles = StyleSheet.create({
   whiteText: {
     color: COLORS.white,
   },
-  list: {
-    marginTop: 24,
+  contentContainerList: {
+    paddingVertical: 24,
   },
   listItem: {
     flexDirection: 'row',
