@@ -25,7 +25,7 @@ export const getSortedDrinkers = (drinks: Array<Drink>) => {
 
 /*
 Using the getSortedDrinkers function, implement the getRanking function
-that returns the ranking of a drinker based on the total amount of drinks they have consumed. 
+that returns the ranking of a drinker based on the total amount of drinks they have consumed.
 */
 export const getRanking = (drinks: Array<Drink>, drinkerId: string) => {
   return 1;
