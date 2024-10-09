@@ -3,16 +3,9 @@ export type Drinker = {
   name: string;
 };
 
-export type Team = {
-  id: string;
-  name: string;
-  drinkers: string[];
-};
-
-export type Drink = {
+export type Record = {
   id: string;
   drinkerId: string;
-  teamId: string;
   amount: number;
   createdAt: string;
 };

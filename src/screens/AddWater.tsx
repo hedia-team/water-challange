@@ -12,14 +12,14 @@ import {
 import {COLORS} from '../styles';
 import {WaterContainer, WATER_CONTAINER} from '../types';
 import List from '../components/List';
-import {createDrinks} from '../api/drinks/createDrinks';
+import {createRecord} from '../api/records/createRecord';
 import {useStore} from '../store/storage';
 
 import {LinearGradientText} from 'react-native-linear-gradient-text';
 
 const AddWater = ({navigation}) => {
   const {drinker} = useStore();
-  const [drink, setDrink] = useState({name: '', capacity: 0});
+  const [record, setRecord] = useState({name: '', capacity: 0});
   const [animation, setAnimation] = useState(false);
 
   const {current} = useRef(new Animated.Value(0));
@@ -31,13 +31,13 @@ const AddWater = ({navigation}) => {
         duration: 1000,
         useNativeDriver: true,
       }).start(async ({finished}) => {
-        await createDrinks(drinker!.id, drink.capacity);
+        await createRecord(drinker!.id, record.capacity);
         finished && navigation.goBack();
       });
-  }, [animation, current, drink, drinker, navigation]);
+  }, [animation, current, record, drinker, navigation]);
 
   const selectItem = (container: WaterContainer) => {
-    setDrink(container);
+    setRecord(container);
   };
   const addWater = async () => {
     setAnimation(true);
@@ -57,12 +57,12 @@ const AddWater = ({navigation}) => {
           <List
             data={WATER_CONTAINER}
             selectItem={selectItem}
-            nameSelected={drink.name}
+            nameSelected={record.name}
           />
         </View>
         <TouchableOpacity
-          disabled={drink.name === ''}
-          style={[styles.button, drink.name === '' && styles.disabled]}
+          disabled={record.name === ''}
+          style={[styles.button, record.name === '' && styles.disabled]}
           onPress={addWater}>
           <Text style={styles.buttonText}>Add Water</Text>
         </TouchableOpacity>

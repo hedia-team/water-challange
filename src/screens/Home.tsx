@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import moment from 'moment';
 import {
   Text,
@@ -16,54 +16,53 @@ import {useFocusEffect} from '@react-navigation/native';
 import {COLORS} from '../styles';
 import Calendar from '../assets/icons/Calendar';
 import {useStore} from '../store/storage';
-import {Drink} from '../types';
-import {getDrinks} from '../api/drinks/getDrinks';
+import {Record} from '../types';
+import {getRecords} from '../api/records/getRecords';
+import {deleteRecord} from '../api/records/deleteRecord';
 import {getRanking} from './utils';
 import {LinearGradientText} from 'react-native-linear-gradient-text';
 import Close from '../assets/icons/Close';
-import {deleteDrink} from '../api/drinks/deleteDrinks';
 
 const HomeScreen = () => {
   const [index, setIndex] = useState(0);
   const [refreshing, setRefreshing] = useState(false);
-  const {drinker, drinks, teams, setDrinks} = useStore();
+  const {drinker, records, setRecords} = useStore();
 
   useFocusEffect(
-    React.useCallback(() => {
-      const fetchUser = async () => setDrinks(await getDrinks().catch());
+    useCallback(() => {
+      const fetchUser = async () => setRecords(await getRecords().catch());
       fetchUser();
-    }, [setDrinks]),
-  );
-
-  const userTeam = teams?.find(team =>
-    team.drinkers?.includes(drinker?.id.toLowerCase() ?? ''),
+    }, [setRecords]),
   );
 
   const onPressDeleteDrink = async (id: string) => {
-    await deleteDrink(id);
-    const d = await getDrinks().catch();
-    setDrinks(d);
+    await deleteRecord(id);
+    const d = await getRecords().catch();
+    setRecords(d);
   };
 
-  const drinkersDrinks = drinks
+  const drinkersRecords = records
     ?.sort(
       (a, b) =>
         new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime(),
     )
-    ?.filter(drink => drink.drinkerId === drinker?.id.toLowerCase());
+    ?.filter(record => record.drinkerId === drinker?.id.toLowerCase());
 
-  const todayDrinkerDrinks = drinkersDrinks?.filter(d =>
+  const todayDrinkerRecords = drinkersRecords?.filter(d =>
     isSameDay(new Date(d.createdAt)),
   );
-  const todayDrinks = drinks?.filter(d => isSameDay(new Date(d.createdAt)));
-  const todayAmount = todayDrinkerDrinks?.reduce((acc, i) => acc + i.amount, 0);
-  const rank = getRanking(todayDrinks, drinker?.id.toLowerCase() ?? '');
+  const todayRecords = records?.filter(d => isSameDay(new Date(d.createdAt)));
+  const todayAmount = todayDrinkerRecords?.reduce(
+    (acc, i) => acc + i.amount,
+    0,
+  );
+  const rank = getRanking(todayRecords, drinker?.id.toLowerCase() ?? '');
 
-  const DRINKS = index === 0 ? todayDrinkerDrinks : drinkersDrinks;
+  const DRINKS = index === 0 ? todayDrinkerRecords : drinkersRecords;
 
   const sectionsData =
     DRINKS?.sort().reduce(
-      (acc: Array<{title: string; data: Array<Drink>}>, item) => {
+      (acc: Array<{title: string; data: Array<Record>}>, item) => {
         const date = new Date(item.createdAt);
         const dateString = date.toDateString();
         const existingSectionIndex = acc.findIndex(
@@ -107,7 +106,7 @@ const HomeScreen = () => {
     </View>
   );
 
-  const renderItem = ({item}: {item: Drink}) => {
+  const renderItem = ({item}: {item: Record}) => {
     const onPress = () =>
       Alert.alert('Hey!', 'Are you sure you want to remove your entry?', [
         {text: 'OK', onPress: async () => onPressDeleteDrink(item.id)},
@@ -118,7 +117,7 @@ const HomeScreen = () => {
         <Text style={styles.time}>
           {moment(item.createdAt).format('HH:mm')}
         </Text>
-        <View style={{flexDirection: `row`}}>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.value}>{item.amount} ml</Text>
           <TouchableOpacity style={{marginLeft: 5}} onPress={onPress}>
             <Close />
@@ -130,7 +129,7 @@ const HomeScreen = () => {
   const refreshControl = () => {
     const onRefresh = async () => {
       setRefreshing(true);
-      setDrinks(await getDrinks());
+      setRecords(await getRecords());
       setRefreshing(false);
     };
 
@@ -148,7 +147,6 @@ const HomeScreen = () => {
       <View style={styles.page}>
         <Text style={styles.user}>
           <Text>{drinker?.name}</Text>
-          <Text style={styles.team}>{` // ${userTeam?.name}`}</Text>
         </Text>
         <LinearGradientText
           colors={[COLORS.pink, COLORS.blue]}

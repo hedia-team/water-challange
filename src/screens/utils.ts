@@ -1,43 +1,34 @@
-import {Drink, Team} from '../types';
-interface TotalByDrinker {
-  [drinkerId: string]: number;
-}
-export interface TeamWithTotalAmount {
-  team: Team;
-  totalAmount: number;
-}
+import {Record} from '../types';
 
-export const getSortedDrinkers = (drinks: Array<Drink>) => {
-  const totalByDrinker: TotalByDrinker = drinks?.reduce(
-    (acc: TotalByDrinker, curr) => {
-      const {drinkerId, amount} = curr;
-      acc[drinkerId] = acc[drinkerId] ? acc[drinkerId] + amount : amount;
-      return acc;
-    },
-    {},
-  );
+type ScoreByDrinker = {
+  drinkerId: string;
+  total: number;
+};
 
-  const sortedDrinkersWithAmount = Object.entries(totalByDrinker)
-    .sort(([, a], [, b]) => b - a)
-    .map(([drinkerId, total]) => ({drinkerId, total}));
-  return sortedDrinkersWithAmount;
+export const getScoreList = (records: Array<Record>) => {
+  const scoreList: Array<ScoreByDrinker> = [];
+
+  records.forEach(record => {
+    const drinkerIndex = scoreList.findIndex(
+      score => score.drinkerId === record.drinkerId,
+    );
+    if (drinkerIndex !== -1) {
+      scoreList[drinkerIndex].total += record.amount;
+    } else {
+      scoreList.push({
+        drinkerId: record.drinkerId,
+        total: record.amount,
+      });
+    }
+  });
+
+  return scoreList;
 };
 
 /*
-Using the getSortedDrinkers function, implement the getRanking function
+Using the sorted array from getScoreList function, implement the getRanking function
 that returns the ranking of a drinker based on the total amount of drinks they have consumed.
 */
-export const getRanking = (drinks: Array<Drink>, drinkerId: string) => {
-  return 1;
-};
-
-/*
-Implement the sortTeamsByTotalAmount function that takes an array of teams and an array of drinks
-and returns an array of TeamWithTotalAmount objects.
-*/
-export const sortTeamsByTotalAmount = (
-  teams: Team[],
-  drinks: Drink[],
-): TeamWithTotalAmount[] => {
-  return [];
+export const getRanking = (records: Array<Record>, drinkerId: string) => {
+  return null;
 };

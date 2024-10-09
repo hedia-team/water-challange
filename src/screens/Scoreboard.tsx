@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import {
   Text,
   SafeAreaView,
@@ -8,24 +8,13 @@ import {
   RefreshControl,
 } from 'react-native';
 import {COLORS} from '../styles';
-import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import Crown from '../assets/icons/Crown';
 import Shit from '../assets/icons/Shit';
 import {useStore} from '../store/storage';
 import {useFocusEffect} from '@react-navigation/native';
-import {getDrinks} from '../api/drinks/getDrinks';
-import {
-  TeamWithTotalAmount,
-  getSortedDrinkers,
-  sortTeamsByTotalAmount,
-} from './utils';
+import {getRecords} from '../api/records/getRecords';
+import {getScoreList} from './utils';
 import {LinearGradientText} from 'react-native-linear-gradient-text';
-
-/*
-Update the ScoreboardScreen component to reintroduce the segmented control
-for switching between team and user views, and restore the list data rendering accordingly.
- Ensure both views are displayed correctly based on the selected segment.
-*/
 
 const getIcon = (index: number, maxIndex: number) => {
   const isFirst = index === 0;
@@ -34,51 +23,24 @@ const getIcon = (index: number, maxIndex: number) => {
   return isFirst ? <Crown /> : isLast ? <Shit /> : <View style={emptyIcon} />;
 };
 
-const TeamListData = () => {
-  const {teams, drinks} = useStore();
-
-  const listTeamItem = (
-    {team, totalAmount}: TeamWithTotalAmount,
-    index: number,
-  ) => {
-    return (
-      <View style={styles.listItem} key={index}>
-        <View style={styles.row}>
-          {getIcon(index, 4)}
-          <Text style={styles.title}>{team.name}</Text>
-        </View>
-        <Text style={styles.units}>
-          <Text>{totalAmount}</Text>
-          <Text> ml</Text>
-        </Text>
-      </View>
-    );
-  };
-  return sortTeamsByTotalAmount(teams, drinks)?.map(listTeamItem);
-};
-
 const DrinkerListData = () => {
-  const {drinks, teams} = useStore();
-  const sortedDrinkers = getSortedDrinkers(drinks);
-  const sortedDrinkersLength = sortedDrinkers?.length ?? 0;
+  const {records} = useStore();
+  const scoreList = getScoreList(records);
+  // implement sorting for scoreList
+  const scoreListLength = scoreList?.length ?? 0;
 
   const listDrinkerItem = (
     {drinkerId, total}: {drinkerId: string; total: number},
     index: number,
   ) => {
-    const userTeam = teams?.find(team =>
-      team.drinkers?.includes(drinkerId?.toLowerCase() ?? ''),
-    );
-
     drinkerId = drinkerId?.charAt(0).toUpperCase() + drinkerId?.slice(1);
 
     return (
       <View style={styles.listItem} key={index}>
         <View style={styles.row}>
-          {getIcon(index, sortedDrinkersLength - 1)}
+          {getIcon(index, scoreListLength - 1)}
           <View>
             <Text style={styles.title}>{drinkerId}</Text>
-            <Text style={styles.subtitle}>{`${userTeam?.name}`}</Text>
           </View>
         </View>
         <Text style={styles.units}>
@@ -89,30 +51,27 @@ const DrinkerListData = () => {
     );
   };
 
-  return sortedDrinkers?.map(listDrinkerItem);
+  return scoreList?.map(listDrinkerItem);
 };
 
 const ScoreboardScreen = () => {
   const [refreshing, setRefreshing] = useState(false);
-  const {drinker, teams, setDrinks} = useStore();
-
-  const userTeam = teams?.find(team =>
-    team.drinkers?.includes(drinker?.id?.toLowerCase() ?? ''),
-  );
+  const {drinker, setRecords} = useStore();
 
   useFocusEffect(
-    React.useCallback(() => {
+    useCallback(() => {
       const fetchUser = async () => {
-        const d = await getDrinks().catch();
-        setDrinks(d);
+        const records = await getRecords().catch();
+        setRecords(records);
       };
       fetchUser();
-    }, [setDrinks]),
+    }, [setRecords]),
   );
+
   const refreshControl = () => {
     const onRefresh = async () => {
       setRefreshing(true);
-      setDrinks(await getDrinks());
+      setRecords(await getRecords());
       setRefreshing(false);
     };
 
@@ -130,7 +89,6 @@ const ScoreboardScreen = () => {
       <View style={styles.page}>
         <Text style={styles.user}>
           <Text>{drinker?.name}</Text>
-          <Text style={styles.team}>{` // ${userTeam?.name}`}</Text>
         </Text>
         <LinearGradientText
           colors={[COLORS.pink, COLORS.blue]}
@@ -139,21 +97,11 @@ const ScoreboardScreen = () => {
           end={{x: 0.4, y: 0}}
           textStyle={styles.header}
         />
-        <SegmentedControl
-          values={['Team', 'User']}
-          tintColor="#636366"
-          backgroundColor="#39393c"
-          fontStyle={styles.whiteText}
-          activeFontStyle={styles.whiteText}
-        />
 
         <ScrollView
-          contentContainerStyle={styles.contentContainerList}
           showsVerticalScrollIndicator={false}
           refreshControl={refreshControl()}>
-          {
-            // Add the content
-          }
+          {DrinkerListData()}
         </ScrollView>
       </View>
     </SafeAreaView>
@@ -204,9 +152,6 @@ const styles = StyleSheet.create({
   whiteText: {
     color: COLORS.white,
   },
-  contentContainerList: {
-    paddingVertical: 24,
-  },
   listItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -245,4 +190,5 @@ const styles = StyleSheet.create({
     height: 28,
   },
 });
+
 export default ScoreboardScreen;
